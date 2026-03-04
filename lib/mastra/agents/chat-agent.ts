@@ -1,12 +1,13 @@
 import { Agent } from '@mastra/core/agent';
 import { z } from 'zod';
+import { defaultModel } from '@/lib/ai';
 import { getEntityGuidanceTool } from '../tools/entity-guidance';
 import { getPhaseContentTool } from '../tools/phase-content';
 
 export const treasuryChatAgent = new Agent({
   id: 'treasury-chat-assistant',
   name: 'Treasury Chat Assistant',
-  model: 'anthropic/claude-sonnet-4-20250514',
+  model: defaultModel,
   requestContextSchema: z.object({
     entityType: z.string(),
     currentPhase: z.number(),

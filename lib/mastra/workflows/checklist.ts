@@ -1,5 +1,5 @@
 import { generateText } from 'ai';
-import { anthropic } from '@ai-sdk/anthropic';
+import { defaultModel } from '@/lib/ai';
 import { getChecklistTemplate } from '@/lib/content';
 import type {
   EntityType,
@@ -62,7 +62,7 @@ Items should reference Australian-specific requirements where applicable.
 Return valid JSON only, no other text.`;
 
   const { text } = await generateText({
-    model: anthropic('claude-sonnet-4-20250514'),
+    model: defaultModel,
     prompt,
     maxOutputTokens: 4096,
   });

@@ -1,5 +1,5 @@
 import { generateText } from 'ai';
-import { anthropic } from '@ai-sdk/anthropic';
+import { defaultModel } from '@/lib/ai';
 import type { EntityType, AssessmentResponses, FitAssessmentResult, FitScore } from '@/types';
 
 function calculatePreliminaryScore(
@@ -58,7 +58,7 @@ Consider Australian regulatory context. Be honest if Bitcoin is not appropriate.
 Return valid JSON only, no other text.`;
 
   const { text } = await generateText({
-    model: anthropic('claude-sonnet-4-20250514'),
+    model: defaultModel,
     prompt,
   });
 

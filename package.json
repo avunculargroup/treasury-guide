@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.54",
+    "@ai-sdk/openai": "^3.0.39",
     "@clerk/nextjs": "^7.0.1",
     "@mastra/ai-sdk": "^1.1.0",
     "@mastra/core": "^1.8.0",
