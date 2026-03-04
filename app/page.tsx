@@ -1,3 +1,5 @@
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { DisclaimerFooter } from '@/components/ui/disclaimer-footer';
 import { Button } from '@/components/ui/button';
@@ -17,7 +19,10 @@ const PHASES = [
   { num: 4, title: 'Track', desc: 'Monitor progress against your implementation plan with status tracking' },
 ];
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const { userId } = await auth();
+  if (userId) redirect('/journey');
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Nav */}

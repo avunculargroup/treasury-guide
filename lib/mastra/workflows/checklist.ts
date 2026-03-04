@@ -1,5 +1,6 @@
-import { generateText } from 'ai';
-import { defaultModel } from '@/lib/ai';
+import { generateObject } from 'ai';
+import { z } from 'zod';
+import { fastModel } from '@/lib/ai';
 import { getChecklistTemplate } from '@/lib/content';
 import type {
   EntityType,
@@ -8,6 +9,20 @@ import type {
   ChecklistOutput,
 } from '@/types';
 
+const checklistSchema = z.object({
+  title: z.string(),
+  categories: z.array(z.object({
+    name: z.string(),
+    description: z.string(),
+    items: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+      responsible: z.string(),
+      estimatedDays: z.number().int(),
+    })),
+  })),
+});
+
 export async function runChecklistGeneration(
   entityType: EntityType,
   assessmentResponses: AssessmentResponses | Record<string, unknown>,
@@ -15,75 +30,51 @@ export async function runChecklistGeneration(
 ): Promise<ChecklistOutput> {
   const template = getChecklistTemplate(entityType);
 
-  const prompt = `You are generating a personalised Bitcoin treasury implementation checklist for an Australian entity.
+  const entitySpecificCategories = [
+    entityType === 'SMSF' ? '"SMSF Trust Deed & Investment Strategy Update"' : '',
+    entityType === 'PUBLIC_COMPANY' ? '"ASX/ASIC Disclosure Requirements"' : '',
+    entityType === 'NFP' ? '"Board & Governance Approvals" and "Donor/Grant Compliance Review"' : '',
+  ].filter(Boolean);
 
-Entity Type: ${entityType}
-Assessment Data: ${JSON.stringify(assessmentResponses, null, 2)}
-Planning Preferences: ${JSON.stringify(planningResponses, null, 2)}
-${template ? `Base Template: ${JSON.stringify(template, null, 2)}` : ''}
+  const prompt = `Generate a personalised Bitcoin treasury implementation checklist for an Australian ${entityType}.
 
-Generate a comprehensive, personalised implementation checklist as JSON with this exact structure:
-{
-  "title": "Bitcoin Treasury Implementation Checklist",
-  "entityType": "${entityType}",
-  "generatedAt": "${new Date().toISOString()}",
-  "categories": [
-    {
-      "name": "Category Name",
-      "description": "Brief description of this category",
-      "items": [
-        {
-          "title": "Task title",
-          "description": "Detailed task description with specific guidance for this entity type",
-          "responsible": "Who is responsible (e.g., CFO, Board, Accountant, Legal, IT)",
-          "estimatedDays": 14,
-          "order": 1
-        }
-      ]
-    }
-  ]
-}
+Assessment: ${JSON.stringify(assessmentResponses)}
+Preferences: custody=${planningResponses.custodyPreference}, allocation=${planningResponses.allocationApproach}, target=${planningResponses.targetAllocationPercent}%
+${template ? `Base template for reference: ${JSON.stringify(template.categories.map(c => c.name))}` : ''}
 
-Required categories (adapt items based on entity type and preferences):
+Required categories:
 1. Internal Approval & Governance
-2. Legal & Compliance Setup
+2. Legal & Compliance
 3. Accounting & Tax Preparation
-4. Custody & Security Setup (personalise based on custody preference: ${planningResponses.custodyPreference})
+4. Custody & Security Setup (for ${planningResponses.custodyPreference})
 5. Banking & Fiat On-ramp
-6. First Purchase Execution (personalise based on allocation approach: ${planningResponses.allocationApproach})
-7. Ongoing Maintenance Setup
+6. First Purchase Execution (${planningResponses.allocationApproach} approach)
+7. Ongoing Maintenance
+${entitySpecificCategories.length ? `Also include: ${entitySpecificCategories.join(', ')}` : ''}
 
-${entityType === 'SMSF' ? 'ALSO include: "SMSF Trust Deed & Investment Strategy Update" category' : ''}
-${entityType === 'PUBLIC_COMPANY' ? 'ALSO include: "ASX/ASIC Disclosure Requirements" category' : ''}
-${entityType === 'NFP' ? 'ALSO include: "Board & Governance Approvals" and "Donor/Grant Compliance Review" categories' : ''}
-
-Each category should have 3-5 specific, actionable items.
-Items should reference Australian-specific requirements where applicable.
-Return valid JSON only, no other text.`;
-
-  const { text } = await generateText({
-    model: defaultModel,
-    prompt,
-    maxOutputTokens: 4096,
-  });
+3-5 actionable items per category. Reference Australian requirements (ATO, ASIC) where applicable.`;
 
   try {
-    const cleaned = text.replace(/```json?\n?/g, '').replace(/```/g, '').trim();
-    const result = JSON.parse(cleaned) as ChecklistOutput;
+    const { object } = await generateObject({
+      model: fastModel,
+      schema: checklistSchema,
+      prompt,
+    });
 
-    // Validate structure
-    if (!result.categories || !Array.isArray(result.categories)) {
-      throw new Error('Invalid checklist structure');
-    }
+    return {
+      title: object.title,
+      entityType,
+      generatedAt: new Date().toISOString(),
+      categories: object.categories.map((cat) => ({
+        ...cat,
+        items: cat.items.map((item, idx) => ({ ...item, order: idx + 1 })),
+      })),
+    };
+  } catch (err) {
+    console.error('AI generation failed, using fallback:', err);
 
-    return result;
-  } catch {
-    // Fallback to template or basic checklist
     if (template) {
-      return {
-        ...template,
-        generatedAt: new Date().toISOString(),
-      };
+      return { ...template, generatedAt: new Date().toISOString() };
     }
 
     return {
@@ -95,46 +86,22 @@ Return valid JSON only, no other text.`;
           name: 'Internal Approval & Governance',
           description: 'Secure internal approval for the Bitcoin treasury strategy',
           items: [
-            {
-              title: 'Draft treasury policy amendment',
-              description: 'Create a policy document outlining the Bitcoin allocation strategy',
-              responsible: 'CFO',
-              estimatedDays: 14,
-              order: 1,
-            },
-            {
-              title: 'Present to board/decision-makers',
-              description: 'Present the proposal with risk assessment and implementation plan',
-              responsible: 'CFO',
-              estimatedDays: 7,
-              order: 2,
-            },
+            { title: 'Draft treasury policy amendment', description: 'Create a policy document outlining the Bitcoin allocation strategy', responsible: 'CFO', estimatedDays: 14, order: 1 },
+            { title: 'Present to board/decision-makers', description: 'Present the proposal with risk assessment and implementation plan', responsible: 'CFO', estimatedDays: 7, order: 2 },
           ],
         },
         {
           name: 'Legal & Compliance Setup',
           description: 'Ensure legal and regulatory compliance',
           items: [
-            {
-              title: 'Engage legal adviser',
-              description: 'Consult with a lawyer experienced in digital assets and Australian corporate law',
-              responsible: 'Legal',
-              estimatedDays: 7,
-              order: 1,
-            },
+            { title: 'Engage legal adviser', description: 'Consult with a lawyer experienced in digital assets and Australian corporate law', responsible: 'Legal', estimatedDays: 7, order: 1 },
           ],
         },
         {
           name: 'Custody & Security Setup',
           description: 'Set up secure custody for Bitcoin holdings',
           items: [
-            {
-              title: 'Select and set up custody solution',
-              description: `Set up ${planningResponses.custodyPreference} custody solution`,
-              responsible: 'IT',
-              estimatedDays: 14,
-              order: 1,
-            },
+            { title: 'Select and set up custody solution', description: `Set up ${planningResponses.custodyPreference} custody solution`, responsible: 'IT', estimatedDays: 14, order: 1 },
           ],
         },
       ],

@@ -5,4 +5,6 @@ export const openrouter = createOpenAI({
   apiKey: process.env.OPENROUTER_API_KEY!,
 });
 
-export const defaultModel = openrouter('anthropic/claude-sonnet-4-5');
+export const defaultModel = openrouter.chat('google/gemini-2.5-flash');
+
+export const fastModel = openrouter.chat('google/gemini-2.5-flash');

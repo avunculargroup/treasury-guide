@@ -44,25 +44,30 @@ export async function POST(req: Request) {
       planningResponses
     );
 
-    // Create artifact and checklist items
+    const checklistItems = checklist.categories.flatMap((category, catIdx) =>
+      category.items.map((item, itemIdx) => ({
+        category: String(category.name || 'General'),
+        title: String(item.title || 'Untitled task'),
+        description: item.description ? String(item.description) : null,
+        responsible: item.responsible ? String(item.responsible) : null,
+        estimatedDays: typeof item.estimatedDays === 'number'
+          ? item.estimatedDays
+          : item.estimatedDays != null
+            ? parseInt(String(item.estimatedDays), 10) || null
+            : null,
+        order: catIdx * 100 + itemIdx + 1,
+        status: 'NOT_STARTED' as const,
+      }))
+    );
+
     const artifact = await prisma.artifact.create({
       data: {
         userId: profile.id,
         type: 'implementation_checklist',
-        title: checklist.title,
+        title: String(checklist.title || 'Bitcoin Treasury Implementation Checklist'),
         content: JSON.parse(JSON.stringify(checklist)) as Prisma.InputJsonValue,
         checklistItems: {
-          create: checklist.categories.flatMap((category, catIdx) =>
-            category.items.map((item, itemIdx) => ({
-              category: category.name,
-              title: item.title,
-              description: item.description,
-              responsible: item.responsible,
-              estimatedDays: item.estimatedDays,
-              order: catIdx * 100 + itemIdx + 1,
-              status: 'NOT_STARTED' as const,
-            }))
-          ),
+          create: checklistItems,
         },
       },
     });
