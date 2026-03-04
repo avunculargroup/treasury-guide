@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EntityType {
+  SMSF
+  SOLE_TRADER
+  NFP
+  PRIVATE_COMPANY
+  PUBLIC_COMPANY
+}
+
+enum PhaseStatus {
+  LOCKED
+  AVAILABLE
+  IN_PROGRESS
+  COMPLETE
+}
+
+enum ChecklistItemStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETE
+  BLOCKED
+}
+
+enum FitScore {
+  RECOMMENDED
+  EXPLORE_FURTHER
+  NOT_RECOMMENDED
+}
+
+model UserProfile {
+  id          String     @id @default(cuid())
+  clerkUserId String     @unique
+  displayName String
+  entityType  EntityType
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  progress     JourneyProgress[]
+  assessments  Assessment[]
+  artifacts    Artifact[]
+  chatMessages ChatMessage[]
+}
+
+model JourneyProgress {
+  id          String      @id @default(cuid())
+  userId      String
+  phase       Int
+  status      PhaseStatus @default(AVAILABLE)
+  completedAt DateTime?
+  updatedAt   DateTime    @updatedAt
+
+  user UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, phase])
+}
+
+model Assessment {
+  id         String    @id @default(cuid())
+  userId     String
+  responses  Json
+  fitScore   FitScore?
+  fitSummary String?
+  riskFlags  Json?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Artifact {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String
+  title       String
+  content     Json
+  generatedAt DateTime @default(now())
+  version     Int      @default(1)
+
+  user           UserProfile     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  checklistItems ChecklistItem[]
+}
+
+model ChecklistItem {
+  id            String              @id @default(cuid())
+  artifactId    String
+  category      String
+  title         String
+  description   String?
+  responsible   String?
+  estimatedDays Int?
+  status        ChecklistItemStatus @default(NOT_STARTED)
+  notes         String?
+  blockedReason String?
+  order         Int
+
+  artifact Artifact @relation(fields: [artifactId], references: [id], onDelete: Cascade)
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  userId    String
+  role      String
+  content   String
+  phase     Int?
+  createdAt DateTime @default(now())
+
+  user UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

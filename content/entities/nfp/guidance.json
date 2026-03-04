@@ -1,0 +1,48 @@
+{
+  "entityType": "Not-for-Profit",
+  "regulatoryBodies": ["ATO", "ACNC", "ASIC", "State/Territory Regulators"],
+  "keyLegislation": [
+    "Australian Charities and Not-for-profits Commission Act 2012 (ACNC Act)",
+    "Corporations Act 2001 (for incorporated associations and companies limited by guarantee)",
+    "Income Tax Assessment Act 1997 (ITAA 1997)",
+    "Associations Incorporation Acts (State/Territory specific)",
+    "Charitable Fundraising Acts (State/Territory specific)",
+    "Trustee Act (State/Territory specific, for charitable trusts)",
+    "Anti-Money Laundering and Counter-Terrorism Financing Act 2006 (AML/CTF Act)"
+  ],
+  "keyConsiderations": [
+    "NFPs must act within their stated charitable or not-for-profit purposes — Bitcoin investment must be consistent with the organisation's constitution and objects",
+    "Board or committee of management has fiduciary duties to act in the best interests of the organisation and apply funds towards its purposes",
+    "Charities registered with the ACNC must comply with governance standards, including the duty of care and duty to act in furtherance of the charity's purposes",
+    "Tax-exempt status (income tax exemption under Division 50 ITAA 1997) requires that the organisation's income and assets are applied solely towards its exempt purposes",
+    "Deductible Gift Recipient (DGR) status imposes additional restrictions — DGR funds must be used for the specific DGR purpose",
+    "Investment of reserves is generally permitted if it constitutes prudent management of the organisation's assets, but speculative investments may be challenged",
+    "State and territory fundraising legislation may impose restrictions on how donated funds can be invested",
+    "Donor expectations and grant conditions may restrict how funds are invested — check all grant agreements and donation conditions",
+    "ACNC Annual Information Statement requires disclosure of financial information, which would include Bitcoin holdings",
+    "Charity governance standards require that the responsible persons (board/committee members) exercise reasonable care and diligence in investment decisions",
+    "Public trust and reputational risk are heightened for NFPs — Bitcoin holdings may attract scrutiny from donors, members, and the public",
+    "NFPs with income tax exemption status do not pay CGT on Bitcoin gains, but this exemption is conditional on continuing to meet the requirements for exemption"
+  ],
+  "commonRisks": [
+    "Breach of fiduciary duty if the board does not exercise adequate care and diligence in the investment decision",
+    "Loss of tax-exempt status if Bitcoin investment is deemed inconsistent with the organisation's exempt purposes",
+    "Reputational damage if donors, members, or the public view the Bitcoin investment as irresponsible or speculative",
+    "Breach of grant conditions if grant funds are invested in Bitcoin without the grantor's approval",
+    "Breach of DGR requirements if DGR-held funds are invested in assets not consistent with the DGR purpose",
+    "Volatility risk leading to a material reduction in funds available for charitable or NFP purposes",
+    "Inadequate governance and documentation leading to personal liability for board members",
+    "Breach of state/territory fundraising legislation regarding the investment of donated funds",
+    "Loss of Bitcoin due to security failures, with no insurance or recourse mechanisms in place",
+    "ACNC compliance action for failure to meet governance standards or financial reporting requirements",
+    "Conflict of interest if a board member has personal financial interests in cryptocurrency"
+  ],
+  "recommendedProfessionals": [
+    "Solicitor experienced in NFP/charity law",
+    "Registered Tax Agent with NFP and cryptocurrency experience",
+    "Auditor (if the organisation is required to be audited)",
+    "ACNC governance adviser",
+    "Financial Adviser with fiduciary experience",
+    "Risk management consultant"
+  ]
+}

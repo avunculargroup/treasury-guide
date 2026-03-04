@@ -1,0 +1,320 @@
+{
+  "entityType": "Private Company",
+  "categories": [
+    {
+      "name": "Internal Approval & Governance",
+      "description": "Establish proper governance frameworks and obtain all necessary approvals before investing in Bitcoin.",
+      "items": [
+        {
+          "title": "Directors disclose material personal interests",
+          "description": "All directors must disclose any material personal interest in the proposed Bitcoin investment under s191 Corporations Act. Directors who personally hold Bitcoin or have interests in cryptocurrency businesses must provide written notice to the other directors before any board discussion.",
+          "responsible": "All Directors",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Review company constitution for investment powers",
+          "description": "Engage a solicitor to review the company's constitution (or the replaceable rules if no constitution exists) to confirm that the company has the power to invest in digital assets. Check for any restrictions on investment types, director powers, or shareholder approval requirements.",
+          "responsible": "Solicitor / Company Secretary",
+          "estimatedDays": 7,
+          "order": 2
+        },
+        {
+          "title": "Review shareholders' agreement for restrictions",
+          "description": "If a shareholders' agreement exists, review it for any investment restrictions, approval thresholds, or reserved matters that may require shareholder consent for a Bitcoin investment. Some agreements require unanimous or supermajority approval for non-core business investments.",
+          "responsible": "Solicitor",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Prepare a board paper and risk assessment",
+          "description": "Prepare a comprehensive board paper covering: investment rationale, proposed allocation (dollar amount and percentage of reserves), risk assessment (volatility, security, regulatory, liquidity, reputational), custody proposal, tax implications, Division 7A considerations, and professional advice obtained.",
+          "responsible": "CFO / Director",
+          "estimatedDays": 10,
+          "order": 4
+        },
+        {
+          "title": "Pass a board resolution",
+          "description": "Hold a properly convened board meeting to consider the Bitcoin investment proposal. Ensure quorum is present and conflicted directors comply with s195 (restriction on voting if applicable for proprietary companies with more than one director). Pass a resolution and record comprehensive minutes.",
+          "responsible": "Board / Company Secretary",
+          "estimatedDays": 5,
+          "order": 5
+        },
+        {
+          "title": "Notify shareholders if required or appropriate",
+          "description": "If the constitution or shareholders' agreement requires shareholder approval, convene a general meeting. Even if not required, consider notifying shareholders of the material treasury decision. Document the communication and any shareholder responses.",
+          "responsible": "Company Secretary / Directors",
+          "estimatedDays": 7,
+          "order": 6
+        },
+        {
+          "title": "Establish a corporate investment policy",
+          "description": "Create or update the company's investment policy to address digital assets. Include: permitted asset classes, maximum allocation limits, approved exchanges and custody providers, rebalancing triggers, valuation methodology, and delegated authority for transactions.",
+          "responsible": "Board / CFO",
+          "estimatedDays": 7,
+          "order": 7
+        }
+      ]
+    },
+    {
+      "name": "Legal & Compliance Setup",
+      "description": "Ensure all legal and regulatory requirements are met.",
+      "items": [
+        {
+          "title": "Obtain legal advice on Corporations Act compliance",
+          "description": "Engage a solicitor to provide written advice confirming that the proposed Bitcoin investment complies with directors' duties, the company constitution, and any applicable provisions of the Corporations Act. The advice should specifically address the business judgment rule requirements.",
+          "responsible": "Solicitor",
+          "estimatedDays": 10,
+          "order": 1
+        },
+        {
+          "title": "Assess Division 7A risks and establish safeguards",
+          "description": "Work with a tax agent to identify and mitigate Division 7A risks. Establish clear policies that: no Bitcoin will be transferred to shareholders or associates, no personal use of company Bitcoin will be permitted, and all Bitcoin transactions will be at arm's length.",
+          "responsible": "Tax Agent",
+          "estimatedDays": 7,
+          "order": 2
+        },
+        {
+          "title": "Review and document solvency position",
+          "description": "Before investing, assess the company's solvency position and document that the company will remain solvent after the Bitcoin investment. Consider: current liabilities, upcoming payment obligations, cash reserves after investment, and the impact of a potential 50%+ decline in Bitcoin value.",
+          "responsible": "CFO / Directors",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Amend constitution if required",
+          "description": "If the constitution restricts the company's ability to invest in Bitcoin, pass a special resolution (75% of votes cast at a general meeting) to amend the constitution. Lodge the amendment with ASIC if required. Engage a solicitor to draft the amendment.",
+          "responsible": "Solicitor / Shareholders",
+          "estimatedDays": 21,
+          "order": 4
+        },
+        {
+          "title": "Review related-party transaction requirements",
+          "description": "If any director, shareholder, or related entity will be involved in the Bitcoin transaction (e.g., using a related entity's exchange account, or purchasing Bitcoin from a related party), ensure the transaction complies with related-party rules and is conducted at arm's length.",
+          "responsible": "Solicitor / Tax Agent",
+          "estimatedDays": 5,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Accounting & Tax Preparation",
+      "description": "Set up accounting and tax reporting frameworks for Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Engage a tax agent with corporate cryptocurrency experience",
+          "description": "Appoint or confirm a registered tax agent experienced in company tax, Division 7A, and cryptocurrency. Discuss the classification (CGT asset vs. trading stock), franking implications, and any advance ruling considerations.",
+          "responsible": "Directors",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Determine the correct tax classification",
+          "description": "Work with the tax agent to determine whether Bitcoin will be classified as a CGT asset or trading stock for the company. Document the basis for the classification, including the company's purpose, intended holding period, and frequency of transactions.",
+          "responsible": "Tax Agent",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Set up accounting treatment and chart of accounts",
+          "description": "Establish the accounting treatment for Bitcoin under AASB standards (intangible asset at cost or revaluation model). Update the chart of accounts to include Bitcoin-related accounts: Bitcoin asset account, unrealised gains/losses, realised gains/losses, exchange fees, and custody costs.",
+          "responsible": "Accountant",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Implement transaction tracking system",
+          "description": "Set up a system to track all Bitcoin transactions with: date, amount in BTC and AUD, exchange used, exchange rate, fees paid, transaction hash, wallet addresses, and authorising person. Integrate with cryptocurrency tax software if available.",
+          "responsible": "Accountant / CFO",
+          "estimatedDays": 5,
+          "order": 4
+        },
+        {
+          "title": "Establish franking account tracking",
+          "description": "Ensure the company's franking account is accurately maintained, as tax paid on Bitcoin gains will generate franking credits. Set up a process to track the impact of Bitcoin tax payments on the franking account and plan for franked dividend distributions.",
+          "responsible": "Accountant / Tax Agent",
+          "estimatedDays": 3,
+          "order": 5
+        },
+        {
+          "title": "Plan for PAYG instalment adjustments",
+          "description": "If Bitcoin gains materially increase the company's income, PAYG instalment amounts may need to be varied. Discuss with the tax agent whether an instalment variation is appropriate to avoid a large year-end tax bill or unnecessary over-payment.",
+          "responsible": "Tax Agent",
+          "estimatedDays": 3,
+          "order": 6
+        }
+      ]
+    },
+    {
+      "name": "Custody & Security Setup",
+      "description": "Establish secure custody arrangements for the company's Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Evaluate custody options for corporate use",
+          "description": "Research custody options suitable for a corporate entity: institutional custodians, regulated exchange custody, or self-custody with multi-signature hardware wallets. Prioritise options that provide: segregated corporate accounts, multi-authorisation, insurance, and audit-friendly reporting.",
+          "responsible": "CFO / IT",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Select and onboard custody provider",
+          "description": "Choose a custody solution and complete onboarding in the company's name. Provide required documentation: certificate of registration, constitution, board resolution, identification of directors and authorised persons, ACN/ABN, and proof of registered office.",
+          "responsible": "CFO",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Implement multi-signature or multi-authorisation controls",
+          "description": "Configure the custody arrangement to require multiple authorised persons (at least two directors or one director plus the CFO) to approve any Bitcoin transfer or withdrawal. This mirrors typical banking dual-authorisation controls.",
+          "responsible": "CFO / IT",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Document custody procedures and key management",
+          "description": "Create comprehensive documentation of: custody account details, authorised persons and their roles, approval workflow, backup and recovery procedures, key storage locations (for hardware wallets), and incident response procedures. Store securely with the company secretary.",
+          "responsible": "CFO / Company Secretary",
+          "estimatedDays": 5,
+          "order": 4
+        },
+        {
+          "title": "Test backup and recovery procedures",
+          "description": "Conduct a test to verify that the company can recover access to Bitcoin if a key person becomes unavailable. Document the test results. Ensure succession procedures are in place for changes in directors or authorised persons.",
+          "responsible": "CFO",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Banking & Fiat On-ramp",
+      "description": "Establish banking and exchange infrastructure for purchasing Bitcoin.",
+      "items": [
+        {
+          "title": "Confirm corporate bank account supports exchange transfers",
+          "description": "Contact the company's bank to confirm that transfers to cryptocurrency exchanges are permitted from the corporate account. Some banks restrict cryptocurrency-related transactions. If blocked, research corporate-friendly banking alternatives.",
+          "responsible": "CFO",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Register with an AUSTRAC-registered exchange",
+          "description": "Open a corporate account on an AUSTRAC-registered Australian exchange. Provide all required documentation: ACN/ABN, certificate of registration, constitution or company extract, board resolution authorising the account, and identification of all directors and authorised persons.",
+          "responsible": "CFO",
+          "estimatedDays": 10,
+          "order": 2
+        },
+        {
+          "title": "Complete corporate KYC/AML verification",
+          "description": "Complete all corporate identity verification requirements. This typically includes: verification of the company (ASIC extract), verification of all directors and beneficial owners (photo ID and proof of address), and confirmation of the source of funds.",
+          "responsible": "CFO",
+          "estimatedDays": 10,
+          "order": 3
+        },
+        {
+          "title": "Test the fiat on-ramp with a small transfer",
+          "description": "Make a small test transfer from the company's bank account to the exchange. Verify the funds arrive and are available for trading. Confirm the exchange account name matches the company name on the bank account.",
+          "responsible": "CFO",
+          "estimatedDays": 5,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "First Purchase Execution",
+      "description": "Execute the initial Bitcoin purchase with proper controls and documentation.",
+      "items": [
+        {
+          "title": "Confirm all pre-purchase requirements are complete",
+          "description": "Verify: board resolution is in place, constitution permits the investment, professional advice has been obtained, exchange and custody are set up, Division 7A safeguards are established, and all documentation is complete.",
+          "responsible": "CFO / Company Secretary",
+          "estimatedDays": 2,
+          "order": 1
+        },
+        {
+          "title": "Execute a small test purchase",
+          "description": "Make a small initial purchase to test the full workflow: exchange purchase, transfer to custody, multi-authorisation, transaction recording, and accounting entries. Verify all systems work correctly before committing the approved allocation.",
+          "responsible": "Authorised Person(s)",
+          "estimatedDays": 3,
+          "order": 2
+        },
+        {
+          "title": "Execute the approved purchase",
+          "description": "Purchase Bitcoin in accordance with the board resolution and investment policy. Obtain all required multi-authorisation approvals. Consider dollar-cost averaging over multiple purchases. Use limit orders to manage execution price.",
+          "responsible": "Authorised Person(s)",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Transfer to secure custody",
+          "description": "Transfer purchased Bitcoin from the exchange to the company's custody solution. Obtain multi-authorisation approval for the transfer. Verify receipt in the custody account. Record the transaction hash and all details.",
+          "responsible": "Authorised Person(s)",
+          "estimatedDays": 2,
+          "order": 4
+        },
+        {
+          "title": "Record the purchase in financial records",
+          "description": "Record the purchase in the company's accounting system: debit Bitcoin asset account, credit bank account, recognise exchange fees as an expense or add to cost base. File all supporting documentation (exchange confirmations, board resolution, transfer receipts).",
+          "responsible": "Accountant / CFO",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Ongoing Maintenance Setup",
+      "description": "Establish processes for ongoing management, compliance, and reporting.",
+      "items": [
+        {
+          "title": "Schedule regular board reporting on Bitcoin holdings",
+          "description": "Include Bitcoin holdings in the regular financial report to the board. Report: current market value, cost base, unrealised gain/loss, percentage of total company assets, any transactions during the period, solvency impact, and compliance status.",
+          "responsible": "CFO / Company Secretary",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Establish quarterly solvency assessment",
+          "description": "Set up a quarterly process to assess the company's solvency position considering current Bitcoin valuations. Document the assessment, including stress-testing the impact of a significant Bitcoin price decline on the company's ability to pay its debts.",
+          "responsible": "CFO / Directors",
+          "estimatedDays": 3,
+          "order": 2
+        },
+        {
+          "title": "Set up year-end tax reporting workflow",
+          "description": "Establish a workflow for: valuing Bitcoin at 30 June, calculating capital gains on any disposals, preparing CGT schedule for the company tax return, updating the franking account, and providing all records to the tax agent.",
+          "responsible": "Accountant / Tax Agent",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Monitor Division 7A compliance",
+          "description": "Implement ongoing monitoring to ensure no Division 7A breaches occur. Review all transactions between the company and shareholders/associates quarterly. Confirm no Bitcoin has been transferred, loaned, or made available to shareholders without proper consideration.",
+          "responsible": "Tax Agent / CFO",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Annual investment policy review",
+          "description": "Schedule an annual board review of the investment policy and Bitcoin allocation. Assess: whether the allocation remains appropriate, market conditions, regulatory changes, custody adequacy, and whether any policy amendments are needed.",
+          "responsible": "Board",
+          "estimatedDays": 3,
+          "order": 5
+        },
+        {
+          "title": "Annual custody and security review",
+          "description": "Conduct an annual review of custody arrangements, security protocols, and authorised persons. Update access controls when directors or staff change. Test recovery procedures. Report findings to the board.",
+          "responsible": "CFO / IT",
+          "estimatedDays": 5,
+          "order": 6
+        },
+        {
+          "title": "Monitor regulatory changes",
+          "description": "Subscribe to updates from ASIC, the ATO, and Treasury regarding changes to corporate law, tax law, and digital asset regulation. Review any changes with the company's solicitor and tax agent. Report material changes to the board.",
+          "responsible": "Company Secretary / CFO",
+          "estimatedDays": 2,
+          "order": 7
+        }
+      ]
+    }
+  ]
+}

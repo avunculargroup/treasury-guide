@@ -1,0 +1,312 @@
+{
+  "entityType": "SMSF",
+  "categories": [
+    {
+      "name": "SMSF Trust Deed & Investment Strategy Update",
+      "description": "Ensure the fund's governing documents permit and support Bitcoin investment before any purchase is made.",
+      "items": [
+        {
+          "title": "Review existing trust deed for cryptocurrency permissions",
+          "description": "Engage a solicitor to review the current SMSF trust deed and confirm whether it permits investment in digital assets, cryptocurrency, or virtual currency. Check the definition of 'investments' and any restrictive clauses.",
+          "responsible": "Solicitor / Trustee",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Amend trust deed if required",
+          "description": "If the trust deed restricts or is silent on digital asset investments, execute a deed of variation to explicitly permit cryptocurrency investments. Ensure the amendment is signed by all trustees and properly witnessed.",
+          "responsible": "Solicitor",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Update the investment strategy to include Bitcoin",
+          "description": "Amend the fund's investment strategy (SIS Reg 4.09) to include Bitcoin as a permitted asset class. Document the target allocation, maximum allocation limit, risk assessment, expected return rationale, liquidity considerations, and how the allocation supports members' retirement objectives.",
+          "responsible": "Trustee / Financial Adviser",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Document trustee meeting minutes for the investment decision",
+          "description": "Hold a formal trustee meeting to resolve to invest in Bitcoin. Record detailed minutes including the investment rationale, allocation amount, chosen exchange and custody solution, risk management approach, and how the sole purpose test is satisfied.",
+          "responsible": "Trustee",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Confirm sole purpose test compliance",
+          "description": "Document how the Bitcoin investment satisfies the sole purpose test under s62 SIS Act. Demonstrate that the investment is made for the purpose of providing retirement benefits to members, not for personal use or speculative purposes inconsistent with a retirement objective.",
+          "responsible": "Trustee / SMSF Adviser",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Internal Approval & Governance",
+      "description": "Establish proper governance frameworks and obtain all necessary internal approvals.",
+      "items": [
+        {
+          "title": "Obtain agreement from all trustees/directors",
+          "description": "Ensure all individual trustees (or all directors of the corporate trustee) agree to the Bitcoin investment. For corporate trustees, hold a directors' meeting and pass a resolution. For individual trustees, obtain written consent from all trustees.",
+          "responsible": "All Trustees / Directors",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Confirm member consent where required",
+          "description": "If the fund has multiple members, confirm all members are aware of and consent to the Bitcoin investment. While not strictly required if the investment strategy covers it, obtaining member acknowledgement is best practice.",
+          "responsible": "Trustee",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Establish a digital asset operations policy",
+          "description": "Create a written policy covering: who is authorised to execute Bitcoin transactions, approval thresholds, key management procedures, backup and recovery protocols, and incident response procedures for security breaches.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Legal & Compliance Setup",
+      "description": "Ensure all legal and compliance requirements are met before and during Bitcoin acquisition.",
+      "items": [
+        {
+          "title": "Verify arm's length dealing requirements",
+          "description": "Confirm the proposed Bitcoin acquisition will be from an unrelated party at fair market value, satisfying s109 SIS Act. Document the source (exchange or OTC desk) and pricing methodology to demonstrate arm's length terms.",
+          "responsible": "Trustee / SMSF Adviser",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Confirm no related-party acquisition breach",
+          "description": "Verify that Bitcoin is not being acquired from a member, relative, or related entity (s66 SIS Act). Ensure no personal Bitcoin is being transferred into the fund, as this is a prohibited related-party acquisition.",
+          "responsible": "Trustee / SMSF Adviser",
+          "estimatedDays": 2,
+          "order": 2
+        },
+        {
+          "title": "Review in-house asset rules",
+          "description": "Confirm the custody and exchange arrangements do not create an in-house asset situation (s71 SIS Act). If using a related-party platform or custody arrangement, ensure in-house asset limits (5% of total fund assets) are not breached.",
+          "responsible": "SMSF Adviser",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Engage SMSF specialist adviser for compliance review",
+          "description": "Engage an SMSF Specialist Adviser (SSA) or qualified financial adviser with digital asset experience to review the proposed investment for compliance with SIS Act and Regulations.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Accounting & Tax Preparation",
+      "description": "Set up accounting and tax reporting frameworks for Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Engage a tax agent with cryptocurrency expertise",
+          "description": "Appoint or confirm a registered tax agent who has experience with cryptocurrency taxation and SMSF annual returns. Discuss the expected tax treatment of Bitcoin holdings, including CGT discount eligibility and exempt current pension income.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Set up cost base tracking system",
+          "description": "Implement a system to track the cost base of all Bitcoin acquisitions in Australian dollars. This must include the purchase price, exchange fees, and any other incidental costs. Consider using dedicated cryptocurrency tax software that integrates with exchanges.",
+          "responsible": "Trustee / Accountant",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Establish valuation methodology for year-end reporting",
+          "description": "Document the methodology for valuing Bitcoin holdings at 30 June each year. Use a recognised pricing source (e.g., CoinGecko, CoinMarketCap, or the exchange's published price) and record the source and price consistently.",
+          "responsible": "Accountant",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Confirm SMSF auditor can audit digital assets",
+          "description": "Contact the fund's ASIC-approved auditor and confirm they have the capability and willingness to audit Bitcoin holdings. Discuss the evidence they will require: blockchain verification, custody account statements, exchange records, and valuation documentation.",
+          "responsible": "Trustee",
+          "estimatedDays": 5,
+          "order": 4
+        },
+        {
+          "title": "Set up record keeping for ATO requirements",
+          "description": "Establish a record-keeping system that captures all required information for each transaction: date, AUD value, exchange used, wallet addresses, transaction hashes, and purpose. Records must be retained for at least 5 years (10 years for some documents).",
+          "responsible": "Trustee / Accountant",
+          "estimatedDays": 5,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Custody & Security Setup",
+      "description": "Establish secure custody arrangements for the fund's Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Evaluate custody options",
+          "description": "Research and compare custody options: regulated exchange custody, institutional custodian, or self-custody with hardware wallets. Consider factors including security, insurance coverage, audit support, cost, and regulatory compliance.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Select and engage custody provider",
+          "description": "Choose a custody solution and complete the onboarding process. For institutional custody, execute the custody agreement in the fund's name. For self-custody, procure hardware wallets from authorised resellers only.",
+          "responsible": "Trustee",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Implement key management procedures",
+          "description": "For self-custody: set up multi-signature wallets requiring multiple trustees to approve transactions. Document seed phrase storage locations, backup procedures, and recovery protocols. Store seed phrases in geographically separated secure locations.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Document asset separation measures",
+          "description": "Document how SMSF Bitcoin is held separately from trustees' personal assets (s52B SIS Act). Maintain a register of all wallet addresses owned by the fund and ensure no personal Bitcoin is commingled with fund assets.",
+          "responsible": "Trustee",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Test backup and recovery procedures",
+          "description": "Conduct a test recovery of the custody setup to ensure that backup procedures work correctly. Document the test results and any issues identified. Ensure at least two trustees can independently recover access if needed.",
+          "responsible": "Trustee",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Banking & Fiat On-ramp",
+      "description": "Establish the banking and exchange infrastructure for purchasing Bitcoin.",
+      "items": [
+        {
+          "title": "Open or confirm SMSF bank account for exchange funding",
+          "description": "Ensure the fund's bank account is set up and can make transfers to the chosen exchange. Some banks may have restrictions on transfers to cryptocurrency exchanges — confirm this with the bank before proceeding.",
+          "responsible": "Trustee",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Register with an AUSTRAC-registered exchange",
+          "description": "Open an account with an AUSTRAC-registered digital currency exchange in the SMSF's name (not a personal account). Complete all KYC/AML verification using the fund's ABN, trust deed, and trustee identification documents.",
+          "responsible": "Trustee",
+          "estimatedDays": 10,
+          "order": 2
+        },
+        {
+          "title": "Complete exchange verification and compliance checks",
+          "description": "Provide all required documentation to the exchange for SMSF account verification. This typically includes: trust deed, trustee identification, ABN confirmation, and proof of fund registration with the ATO.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Test the fiat on-ramp with a small transfer",
+          "description": "Make a small test transfer from the SMSF bank account to the exchange account to confirm the banking pathway works correctly. Verify the funds arrive and can be used for trading.",
+          "responsible": "Trustee",
+          "estimatedDays": 5,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "First Purchase Execution",
+      "description": "Execute the initial Bitcoin purchase in a controlled and documented manner.",
+      "items": [
+        {
+          "title": "Conduct a small test purchase",
+          "description": "Execute a small initial Bitcoin purchase to test the full workflow: exchange purchase, transfer to custody, record keeping, and valuation. Verify all steps work correctly before committing the full planned allocation.",
+          "responsible": "Trustee",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Transfer test purchase to custody",
+          "description": "Transfer the test Bitcoin purchase from the exchange to the fund's custody solution (hardware wallet or institutional custodian). Verify the transfer completes successfully and the Bitcoin is visible in the custody account.",
+          "responsible": "Trustee",
+          "estimatedDays": 2,
+          "order": 2
+        },
+        {
+          "title": "Execute the primary purchase",
+          "description": "Execute the planned Bitcoin purchase according to the investment strategy allocation. Consider using a dollar-cost averaging approach over multiple purchases to manage volatility risk. Record all transaction details immediately.",
+          "responsible": "Trustee",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Transfer to secure custody",
+          "description": "Transfer all purchased Bitcoin from the exchange to the fund's primary custody solution. Verify receipt and update the fund's asset register with wallet addresses, amounts, and transaction hashes.",
+          "responsible": "Trustee",
+          "estimatedDays": 2,
+          "order": 4
+        },
+        {
+          "title": "Document the purchase in fund records",
+          "description": "Create comprehensive records of all purchases including: trustee resolution, purchase dates and prices in AUD, exchange confirmations, blockchain transaction hashes, custody confirmations, and cost base calculations.",
+          "responsible": "Trustee / Accountant",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Ongoing Maintenance Setup",
+      "description": "Establish processes for ongoing management, compliance, and reporting of Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Schedule regular investment strategy reviews",
+          "description": "Set up a calendar reminder for at least annual review of the investment strategy, or more frequently if market conditions change materially. Document each review in trustee meeting minutes, including whether the Bitcoin allocation remains appropriate.",
+          "responsible": "Trustee",
+          "estimatedDays": 2,
+          "order": 1
+        },
+        {
+          "title": "Establish year-end valuation process",
+          "description": "Create a documented process for obtaining and recording the market value of Bitcoin holdings at 30 June each year. Identify the pricing source and establish a procedure for capturing the valuation evidence for audit purposes.",
+          "responsible": "Trustee / Accountant",
+          "estimatedDays": 3,
+          "order": 2
+        },
+        {
+          "title": "Set up ongoing tax reporting workflow",
+          "description": "Establish a workflow for tracking Bitcoin transactions throughout the year, calculating capital gains or losses, and providing the information to the tax agent for the SMSF Annual Return. Consider using cryptocurrency tax software.",
+          "responsible": "Accountant / Tax Agent",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Create audit preparation checklist",
+          "description": "Develop a checklist of evidence and documentation the SMSF auditor will require each year: wallet balance confirmations, exchange statements, transaction records, custody agreements, investment strategy, and trustee minutes.",
+          "responsible": "Trustee / Accountant",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Monitor regulatory changes",
+          "description": "Subscribe to ATO updates, SMSF industry newsletters, and digital asset regulatory news to stay informed of any changes that may affect the fund's Bitcoin holdings. Review and act on any new compliance requirements promptly.",
+          "responsible": "Trustee / SMSF Adviser",
+          "estimatedDays": 2,
+          "order": 5
+        },
+        {
+          "title": "Review custody security annually",
+          "description": "Conduct an annual review of custody arrangements, security procedures, and key management protocols. Test backup and recovery procedures. Update procedures if any trustees change or if new security best practices emerge.",
+          "responsible": "Trustee",
+          "estimatedDays": 3,
+          "order": 6
+        }
+      ]
+    }
+  ]
+}

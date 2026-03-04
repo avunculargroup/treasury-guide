@@ -1,0 +1,367 @@
+{
+  "entityType": "Not-for-Profit",
+  "categories": [
+    {
+      "name": "Board & Governance Approvals",
+      "description": "Obtain proper board approval and establish governance frameworks before any Bitcoin investment.",
+      "items": [
+        {
+          "title": "Identify and declare conflicts of interest",
+          "description": "Before any discussion of Bitcoin investment, all board members must declare any personal interests in cryptocurrency holdings or related businesses. Members with material conflicts should recuse themselves from the decision-making process in accordance with the organisation's conflict of interest policy.",
+          "responsible": "Board Chair / All Board Members",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Review constitution and objects for investment powers",
+          "description": "Engage a solicitor to review the organisation's constitution (or rules, trust deed) to confirm that it permits investment in digital assets. Verify that the objects clause is broad enough to support investment activities as part of prudent reserve management.",
+          "responsible": "Solicitor / Board Secretary",
+          "estimatedDays": 10,
+          "order": 2
+        },
+        {
+          "title": "Prepare a comprehensive board paper",
+          "description": "Draft a board paper that covers: the investment rationale, proposed allocation amount and percentage of total reserves, risk assessment (volatility, security, regulatory, reputational), custody arrangements, professional advice obtained, how the investment serves the organisation's purposes, and a recommendation.",
+          "responsible": "CEO / CFO / Treasurer",
+          "estimatedDays": 14,
+          "order": 3
+        },
+        {
+          "title": "Obtain professional financial and legal advice",
+          "description": "Engage qualified professionals (solicitor with NFP experience, financial adviser with fiduciary experience) to provide written advice on the proposed investment. This advice should address legal permissibility, fiduciary duty implications, tax considerations, and regulatory compliance.",
+          "responsible": "Board / Management",
+          "estimatedDays": 14,
+          "order": 4
+        },
+        {
+          "title": "Pass a formal board resolution",
+          "description": "Present the board paper at a properly convened board meeting. Ensure a quorum is present. Pass a resolution authorising the investment, specifying the maximum allocation, custody arrangements, and delegated authority for execution. Record the resolution and all discussion in the minutes.",
+          "responsible": "Board",
+          "estimatedDays": 7,
+          "order": 5
+        },
+        {
+          "title": "Update the investment policy",
+          "description": "Amend the organisation's investment policy to explicitly address digital assets, including: permitted asset classes, maximum allocation limits, approved exchanges and custody providers, valuation methodology, and review frequency. The policy should be approved by the board.",
+          "responsible": "Board / Treasurer",
+          "estimatedDays": 7,
+          "order": 6
+        }
+      ]
+    },
+    {
+      "name": "Donor/Grant Compliance Review",
+      "description": "Ensure Bitcoin investment does not breach donor conditions, grant requirements, or fundraising regulations.",
+      "items": [
+        {
+          "title": "Review all active grant agreements",
+          "description": "Review every current grant agreement to identify any restrictions on how grant funds may be invested. Contact grantors if the agreements are silent on investment of funds to confirm that Bitcoin investment of uncommitted grant reserves is permissible.",
+          "responsible": "Grants Manager / CFO",
+          "estimatedDays": 10,
+          "order": 1
+        },
+        {
+          "title": "Review restricted fund obligations",
+          "description": "Identify all restricted funds held by the organisation (donations received with conditions on use). Confirm that only unrestricted surplus funds are being considered for Bitcoin investment. Document which funds are being used and their unrestricted status.",
+          "responsible": "CFO / Accountant",
+          "estimatedDays": 7,
+          "order": 2
+        },
+        {
+          "title": "Assess DGR fund compliance",
+          "description": "If the organisation has DGR endorsement, confirm that DGR funds are not being used for Bitcoin investment unless this serves the DGR purpose. Seek ATO guidance or professional advice if uncertain. Document the analysis and conclusions.",
+          "responsible": "Tax Agent / Solicitor",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Review state/territory fundraising legislation",
+          "description": "Confirm compliance with the relevant state/territory charitable fundraising Act. Check whether there are restrictions on how donated funds can be invested and whether Bitcoin investment is permitted under the applicable fundraising authority.",
+          "responsible": "Solicitor",
+          "estimatedDays": 7,
+          "order": 4
+        },
+        {
+          "title": "Prepare stakeholder communication plan",
+          "description": "Develop a plan for communicating the Bitcoin investment decision to key stakeholders: members, major donors, grant providers, and volunteers. The communication should explain the rationale, safeguards, and how the investment serves the organisation's mission.",
+          "responsible": "CEO / Communications Manager",
+          "estimatedDays": 7,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Internal Approval & Governance",
+      "description": "Implement internal controls and governance structures for ongoing Bitcoin management.",
+      "items": [
+        {
+          "title": "Establish delegated authority for Bitcoin transactions",
+          "description": "Define who is authorised to execute Bitcoin transactions on behalf of the organisation. Set approval thresholds (e.g., dual authorisation for transactions above a certain amount). Document the delegated authority in writing and have it approved by the board.",
+          "responsible": "Board / CEO",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Create an operational procedures manual",
+          "description": "Develop documented procedures for: purchasing Bitcoin, transferring to custody, recording transactions, valuing holdings, reporting to the board, and disposing of Bitcoin. Include security protocols, emergency procedures, and escalation processes.",
+          "responsible": "CFO / Operations Manager",
+          "estimatedDays": 10,
+          "order": 2
+        },
+        {
+          "title": "Set up internal reporting framework",
+          "description": "Establish a schedule for reporting Bitcoin holdings to the board: current value, unrealised gains/losses, transactions during the period, and any incidents or concerns. Include Bitcoin reporting in the regular board financial report.",
+          "responsible": "CFO / Treasurer",
+          "estimatedDays": 5,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "Legal & Compliance Setup",
+      "description": "Ensure all legal and regulatory requirements are met.",
+      "items": [
+        {
+          "title": "Confirm ACNC governance standard compliance",
+          "description": "For registered charities, document how the Bitcoin investment complies with each relevant ACNC Governance Standard, particularly Standards 1 (purposes), 2 (accountability), 3 (compliance with laws), and 5 (duties of responsible persons).",
+          "responsible": "Solicitor / Board Secretary",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Amend constitution if required",
+          "description": "If the constitution does not adequately support Bitcoin investment, engage a solicitor to draft the necessary amendments. Follow the amendment procedure in the constitution (typically requires a special resolution at a general meeting).",
+          "responsible": "Solicitor / Board",
+          "estimatedDays": 21,
+          "order": 2
+        },
+        {
+          "title": "Verify tax-exempt status implications",
+          "description": "Obtain advice from a registered tax agent confirming that the proposed Bitcoin investment will not jeopardise the organisation's income tax exemption under Division 50 ITAA 1997. Document the advice and the basis for the conclusion.",
+          "responsible": "Tax Agent",
+          "estimatedDays": 10,
+          "order": 3
+        },
+        {
+          "title": "Review insurance coverage",
+          "description": "Review the organisation's insurance policies (directors and officers liability, professional indemnity, fidelity/crime) to determine whether Bitcoin holdings are covered. Consider obtaining additional coverage if not. Document any gaps and the board's acceptance of residual risk.",
+          "responsible": "Board / Insurance Broker",
+          "estimatedDays": 7,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Accounting & Tax Preparation",
+      "description": "Set up accounting and reporting frameworks for Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Engage an accountant with NFP and cryptocurrency experience",
+          "description": "Appoint or confirm an accountant or registered tax agent who understands both NFP accounting requirements and cryptocurrency accounting. Discuss the accounting treatment (AASB 138 intangible asset or fair value measurement) and reporting requirements.",
+          "responsible": "CFO / Board",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Determine the appropriate accounting treatment",
+          "description": "Work with the accountant to determine the correct accounting treatment for Bitcoin under Australian Accounting Standards. For most NFPs, Bitcoin will be classified as an intangible asset or measured at fair value. Document the accounting policy adopted.",
+          "responsible": "Accountant",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Set up transaction recording systems",
+          "description": "Implement a system for recording all Bitcoin transactions in the organisation's accounting software. Each transaction should be recorded with: date, AUD value, exchange used, purpose, and authorised person. Integrate with cryptocurrency tracking software if available.",
+          "responsible": "Accountant / CFO",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Establish year-end valuation procedures",
+          "description": "Document the methodology for valuing Bitcoin holdings at the end of each reporting period. Identify the independent pricing source to be used. Ensure the valuation method is consistent with the adopted accounting standard and can be verified by the auditor.",
+          "responsible": "Accountant",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Brief the auditor on Bitcoin holdings",
+          "description": "If the organisation is audited, inform the auditor about the Bitcoin investment before the audit. Discuss the evidence they will require: blockchain verification, custody statements, exchange records, board resolutions, and investment policy. Address any concerns proactively.",
+          "responsible": "CFO / Auditor",
+          "estimatedDays": 5,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Custody & Security Setup",
+      "description": "Establish secure custody arrangements appropriate for an organisation managing other people's funds.",
+      "items": [
+        {
+          "title": "Evaluate institutional custody options",
+          "description": "Research institutional custody providers that support organisational accounts with features such as: multi-signature authorisation, segregated storage, insurance coverage, audit-friendly reporting, and compliance with Australian regulations. NFPs should prioritise institutional custody over self-custody given the fiduciary obligations.",
+          "responsible": "CFO / IT Manager",
+          "estimatedDays": 10,
+          "order": 1
+        },
+        {
+          "title": "Select and onboard custody provider",
+          "description": "Choose a custody provider and complete the onboarding process in the organisation's name. Provide all required documentation: certificate of incorporation, constitution, board resolution authorising the account, identification of authorised signatories, and ABN.",
+          "responsible": "CFO",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Implement multi-authorisation controls",
+          "description": "Configure the custody arrangement to require multiple authorised persons to approve any Bitcoin withdrawal or transfer. Set up approval workflows that align with the organisation's delegated authority framework (e.g., two of three authorised persons for any transaction).",
+          "responsible": "CFO / IT Manager",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Document custody and security procedures",
+          "description": "Create comprehensive documentation of the custody arrangement, including: account details, authorised persons and their roles, approval procedures, backup and recovery processes, and incident response plan. Store documentation securely and provide to the board.",
+          "responsible": "CFO",
+          "estimatedDays": 5,
+          "order": 4
+        },
+        {
+          "title": "Test disaster recovery procedures",
+          "description": "Test the ability to recover access to Bitcoin holdings in the event of a personnel change, system failure, or security incident. Document the test results and any improvements needed.",
+          "responsible": "CFO / IT Manager",
+          "estimatedDays": 5,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Banking & Fiat On-ramp",
+      "description": "Establish the banking and exchange infrastructure for purchasing Bitcoin.",
+      "items": [
+        {
+          "title": "Confirm organisational bank account supports exchange transfers",
+          "description": "Contact the organisation's bank to confirm that transfers to cryptocurrency exchanges are permitted. Some banks have restrictions on cryptocurrency-related transactions. If blocked, research alternative banking options.",
+          "responsible": "CFO / Treasurer",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Register with an AUSTRAC-registered exchange",
+          "description": "Open an organisational account on an AUSTRAC-registered Australian exchange. Provide all required documentation: ABN, certificate of incorporation, constitution, board resolution, identification of authorised persons, and proof of address.",
+          "responsible": "CFO",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Complete exchange KYC/AML verification",
+          "description": "Complete all identity verification requirements for the organisational exchange account. This typically includes verification of all authorised persons, the organisation's legal status, and its source of funds.",
+          "responsible": "CFO",
+          "estimatedDays": 10,
+          "order": 3
+        },
+        {
+          "title": "Test the funding pathway",
+          "description": "Make a small test transfer from the organisation's bank account to the exchange to verify the pathway works. Confirm funds arrive and are available for trading. Record the test in the organisation's financial records.",
+          "responsible": "CFO",
+          "estimatedDays": 5,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "First Purchase Execution",
+      "description": "Execute the initial Bitcoin purchase with appropriate controls and documentation.",
+      "items": [
+        {
+          "title": "Confirm all pre-purchase requirements are complete",
+          "description": "Before the first purchase, verify: board resolution is in place, investment policy is updated, custody is set up, exchange account is verified, professional advice has been obtained, and all documentation is complete.",
+          "responsible": "CFO",
+          "estimatedDays": 2,
+          "order": 1
+        },
+        {
+          "title": "Execute a small test purchase",
+          "description": "Make a small initial purchase to test the entire workflow: exchange purchase, transfer to custody, transaction recording, and multi-authorisation processes. Verify all systems work correctly before committing the approved allocation.",
+          "responsible": "Authorised Person(s)",
+          "estimatedDays": 3,
+          "order": 2
+        },
+        {
+          "title": "Execute the approved purchase",
+          "description": "Purchase Bitcoin in accordance with the board resolution and investment policy. Obtain all required approvals. Use limit orders to control the purchase price. Consider dollar-cost averaging over multiple transactions to manage volatility.",
+          "responsible": "Authorised Person(s)",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Transfer to secure custody",
+          "description": "Transfer all purchased Bitcoin from the exchange to the organisation's custody solution. Obtain multi-authorisation approvals for the transfer. Verify receipt in the custody account.",
+          "responsible": "Authorised Person(s)",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Report the purchase to the board",
+          "description": "Prepare a report for the board confirming: the purchase date, amount, AUD cost, exchange used, custody location, and any issues encountered. Include the report in the next board meeting agenda.",
+          "responsible": "CFO / Treasurer",
+          "estimatedDays": 5,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Ongoing Maintenance Setup",
+      "description": "Establish processes for ongoing management, reporting, and compliance.",
+      "items": [
+        {
+          "title": "Set up regular board reporting",
+          "description": "Include Bitcoin holdings in the regular financial report to the board. Report: current market value, unrealised gain/loss, percentage of total reserves, any transactions during the period, and compliance status. Recommend monthly or quarterly reporting depending on the board meeting schedule.",
+          "responsible": "CFO / Treasurer",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Schedule annual investment policy review",
+          "description": "Set a calendar reminder for an annual review of the investment policy by the board. The review should assess: whether the Bitcoin allocation remains appropriate, whether market conditions have changed materially, whether the custody arrangements remain adequate, and whether any regulatory changes require action.",
+          "responsible": "Board / CFO",
+          "estimatedDays": 2,
+          "order": 2
+        },
+        {
+          "title": "Establish ACNC Annual Information Statement process",
+          "description": "Ensure the process for preparing the ACNC Annual Information Statement includes Bitcoin holdings. For medium and large charities, ensure the financial report accurately reflects Bitcoin holdings in accordance with the adopted accounting standard.",
+          "responsible": "Accountant / CFO",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Set up audit preparation workflow",
+          "description": "For organisations required to be audited, create a checklist of evidence to prepare for the auditor: custody account statements, exchange records, board resolutions, investment policy, transaction records, year-end valuation evidence, and compliance documentation.",
+          "responsible": "CFO / Accountant",
+          "estimatedDays": 5,
+          "order": 4
+        },
+        {
+          "title": "Monitor regulatory changes",
+          "description": "Subscribe to updates from the ACNC, ATO, and relevant state/territory regulators. Monitor for changes to governance standards, tax treatment, accounting standards, and digital asset regulation that may affect the organisation's Bitcoin holdings.",
+          "responsible": "Board Secretary / CFO",
+          "estimatedDays": 2,
+          "order": 5
+        },
+        {
+          "title": "Review custody and security annually",
+          "description": "Conduct an annual review of custody arrangements, security protocols, and authorised persons. Update access controls when personnel change. Test disaster recovery procedures. Report findings to the board.",
+          "responsible": "CFO / IT Manager",
+          "estimatedDays": 5,
+          "order": 6
+        },
+        {
+          "title": "Annual stakeholder communication",
+          "description": "Include information about Bitcoin holdings in the organisation's annual report and any communications to members. Be transparent about the performance, rationale, and ongoing management of the investment.",
+          "responsible": "CEO / Communications Manager",
+          "estimatedDays": 5,
+          "order": 7
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "entityType": "PUBLIC_COMPANY",
+  "categories": [
+    {
+      "name": "Internal Approval & Governance",
+      "description": "Secure board approval and establish governance framework for the Bitcoin treasury strategy.",
+      "items": [
+        {
+          "title": "Commission independent analysis of Bitcoin treasury strategy",
+          "description": "Engage an independent adviser to prepare a comprehensive analysis of the risks, opportunities, regulatory implications, and financial impact of a Bitcoin treasury allocation.",
+          "responsible": "CFO",
+          "estimatedDays": 21,
+          "order": 1
+        },
+        {
+          "title": "Prepare and present board paper",
+          "description": "Draft a detailed board paper covering investment rationale, proposed allocation, custody arrangements, risk assessment, disclosure obligations, and governance framework. Present at a board meeting.",
+          "responsible": "CFO / Company Secretary",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Obtain formal board resolution",
+          "description": "Pass a board resolution approving the Bitcoin treasury policy. Ensure detailed minutes record the discussion, considerations, professional advice relied upon, and any conflicts of interest declared.",
+          "responsible": "Board / Company Secretary",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Establish delegated authority framework",
+          "description": "Define who can authorise Bitcoin acquisitions and disposals, and at what thresholds board approval is required versus management delegation.",
+          "responsible": "Company Secretary",
+          "estimatedDays": 7,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "ASX/ASIC Disclosure Requirements",
+      "description": "Comply with continuous disclosure obligations and prepare market communications.",
+      "items": [
+        {
+          "title": "Obtain legal advice on ASX disclosure obligations",
+          "description": "Engage corporate lawyers to advise on continuous disclosure requirements under LR 3.1, whether shareholder approval is needed under LR 11.1, and any ASIC regulatory considerations.",
+          "responsible": "Legal / Company Secretary",
+          "estimatedDays": 14,
+          "order": 1
+        },
+        {
+          "title": "Prepare ASX announcement",
+          "description": "Draft a market announcement disclosing the Bitcoin treasury strategy. Include: rationale, allocation parameters, custody arrangements, risk management approach, and governance framework.",
+          "responsible": "Company Secretary / Investor Relations",
+          "estimatedDays": 7,
+          "order": 2
+        },
+        {
+          "title": "Brief major shareholders and broker",
+          "description": "Before the public announcement, brief the company's broker and prepare talking points for engagement with major institutional shareholders.",
+          "responsible": "Investor Relations / CEO",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Establish ongoing disclosure protocol",
+          "description": "Create an internal protocol for when Bitcoin-related information triggers continuous disclosure obligations (material acquisitions, significant losses, security incidents).",
+          "responsible": "Company Secretary",
+          "estimatedDays": 7,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Legal & Compliance Setup",
+      "description": "Ensure legal and regulatory compliance for the Bitcoin treasury program.",
+      "items": [
+        {
+          "title": "Engage corporate lawyer with digital asset experience",
+          "description": "Appoint or consult with a corporate lawyer experienced in digital assets, ASX listing rules, and Corporations Act directors' duties.",
+          "responsible": "General Counsel",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Review director conflict of interest obligations",
+          "description": "Ensure all directors disclose any material personal interest in cryptocurrency under s 191 Corporations Act. Update the conflict of interest register.",
+          "responsible": "Company Secretary",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Draft Bitcoin treasury policy",
+          "description": "Prepare a formal Bitcoin Treasury Policy document covering allocation limits, risk parameters, custody requirements, disclosure triggers, and review schedule.",
+          "responsible": "CFO / Legal",
+          "estimatedDays": 14,
+          "order": 3
+        },
+        {
+          "title": "Update risk management framework",
+          "description": "Integrate Bitcoin-specific risks (volatility, custody, regulatory, reputational) into the company's existing risk register and risk management framework.",
+          "responsible": "Risk / CFO",
+          "estimatedDays": 10,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Accounting & Tax Preparation",
+      "description": "Set up accounting processes and tax compliance for Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Brief external auditor",
+          "description": "Discuss the Bitcoin treasury strategy with the external auditor. Agree on audit procedures for verifying existence, ownership, and fair value of Bitcoin holdings.",
+          "responsible": "CFO",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Determine accounting treatment",
+          "description": "Confirm the accounting standard to apply (AASB 138 intangible asset or alternative), measurement model (cost vs revaluation), and disclosure requirements. Document the accounting policy election.",
+          "responsible": "CFO / Auditor",
+          "estimatedDays": 10,
+          "order": 2
+        },
+        {
+          "title": "Engage tax adviser for corporate crypto tax strategy",
+          "description": "Consult with a tax adviser on CGT vs trading stock classification, franking account implications, and transfer pricing considerations for any multinational group entities.",
+          "responsible": "CFO / Tax Adviser",
+          "estimatedDays": 14,
+          "order": 3
+        },
+        {
+          "title": "Set up financial reporting processes",
+          "description": "Establish processes for fair value measurement at each reporting date, unrealised gain/loss calculations, note disclosures, and management commentary on Bitcoin holdings.",
+          "responsible": "Finance Team",
+          "estimatedDays": 10,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Custody & Security Setup",
+      "description": "Establish institutional-grade custody for Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Select an institutional custody provider",
+          "description": "Evaluate and select a regulated institutional custodian with SOC 2 Type II certification, segregated accounts, insurance coverage, and independent verification capabilities.",
+          "responsible": "CFO / IT",
+          "estimatedDays": 21,
+          "order": 1
+        },
+        {
+          "title": "Execute custody agreement",
+          "description": "Negotiate and execute a custody agreement covering security standards, insurance, liability, reporting, audit access, and termination provisions.",
+          "responsible": "Legal / CFO",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Establish internal security protocols",
+          "description": "Set up multi-party authorisation for withdrawals, access controls, monitoring, and incident response procedures.",
+          "responsible": "IT / CFO",
+          "estimatedDays": 10,
+          "order": 3
+        },
+        {
+          "title": "Verify insurance coverage",
+          "description": "Confirm the custodian's insurance covers digital asset loss. Consider whether the company's own D&O and professional indemnity insurance needs updating.",
+          "responsible": "Company Secretary / Legal",
+          "estimatedDays": 7,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Banking & Fiat On-ramp",
+      "description": "Set up banking and exchange infrastructure for Bitcoin acquisitions.",
+      "items": [
+        {
+          "title": "Confirm bank supports exchange transfers",
+          "description": "Verify with the company's banking partner that transfers to cryptocurrency exchanges are permitted. Brief the relationship manager on the Bitcoin treasury strategy.",
+          "responsible": "CFO / Treasury",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Open accounts with AUSTRAC-registered exchanges",
+          "description": "Register corporate accounts on regulated Australian exchanges with deep AUD/BTC liquidity. Complete corporate KYC verification.",
+          "responsible": "Treasury / CFO",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Evaluate OTC desk options",
+          "description": "For large transactions, evaluate OTC desks that can execute block trades with minimal market impact. Establish trading agreements and credit lines.",
+          "responsible": "Treasury / CFO",
+          "estimatedDays": 10,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "name": "First Purchase Execution",
+      "description": "Execute the initial Bitcoin acquisition with proper controls and disclosure.",
+      "items": [
+        {
+          "title": "Execute test transaction",
+          "description": "Conduct a small test purchase to verify the complete workflow: bank transfer, exchange purchase, withdrawal to custody, accounting entry, and audit trail.",
+          "responsible": "Treasury",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Execute planned acquisition",
+          "description": "Acquire Bitcoin according to the approved treasury policy. Use limit orders or OTC execution to manage market impact. Ensure all approvals are documented.",
+          "responsible": "Treasury / CFO",
+          "estimatedDays": 14,
+          "order": 2
+        },
+        {
+          "title": "Transfer to institutional custody",
+          "description": "Move all acquired Bitcoin to the institutional custodian. Verify receipt and obtain custody confirmation.",
+          "responsible": "Treasury",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Lodge ASX announcement for material acquisition",
+          "description": "If the acquisition is material, lodge the prepared ASX announcement. Provide the Company Secretary with full transaction details for the announcement.",
+          "responsible": "Company Secretary",
+          "estimatedDays": 1,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Ongoing Maintenance Setup",
+      "description": "Establish processes for ongoing management, reporting, and compliance.",
+      "items": [
+        {
+          "title": "Establish board reporting cadence",
+          "description": "Set up quarterly (minimum) board reporting covering: Bitcoin holdings, unrealised gains/losses, policy compliance, market developments, and regulatory updates.",
+          "responsible": "CFO / Company Secretary",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Integrate into half-yearly and annual reporting",
+          "description": "Update financial reporting templates to include Bitcoin note disclosures, management commentary, and risk disclosures for half-yearly and annual reports.",
+          "responsible": "Finance Team",
+          "estimatedDays": 7,
+          "order": 2
+        },
+        {
+          "title": "Prepare AGM materials",
+          "description": "Include Bitcoin treasury information in the annual report and prepare for shareholder questions at the AGM. Brief the chair and CEO on talking points.",
+          "responsible": "Company Secretary / Investor Relations",
+          "estimatedDays": 10,
+          "order": 3
+        },
+        {
+          "title": "Schedule annual policy review",
+          "description": "Set an annual review date for the Bitcoin Treasury Policy. The review should consider: allocation performance, regulatory changes, shareholder feedback, and market developments.",
+          "responsible": "CFO / Board",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Monitor regulatory developments",
+          "description": "Subscribe to ASIC, ASX, and ATO updates relevant to digital assets. Brief the board on any material regulatory changes.",
+          "responsible": "Legal / Company Secretary",
+          "estimatedDays": 2,
+          "order": 5
+        }
+      ]
+    }
+  ]
+}

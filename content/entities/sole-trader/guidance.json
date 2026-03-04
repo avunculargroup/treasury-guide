@@ -1,0 +1,43 @@
+{
+  "entityType": "Sole Trader",
+  "regulatoryBodies": ["ATO", "AUSTRAC"],
+  "keyLegislation": [
+    "Income Tax Assessment Act 1997 (ITAA 1997)",
+    "Income Tax Assessment Act 1936 (ITAA 1936)",
+    "A New Tax System (Goods and Services Tax) Act 1999 (GST Act)",
+    "Anti-Money Laundering and Counter-Terrorism Financing Act 2006 (AML/CTF Act)",
+    "Taxation Administration Act 1953"
+  ],
+  "keyConsiderations": [
+    "A sole trader is not a separate legal entity — the individual and the business are the same legal person, meaning personal liability for all business debts and obligations",
+    "Bitcoin held as a business asset is treated differently for tax purposes than Bitcoin held as a personal investment",
+    "If Bitcoin is held as a business asset for the purpose of trade or exchange (carrying on a business of Bitcoin trading), profits are assessed as ordinary income, not capital gains",
+    "If Bitcoin is held as a treasury reserve or long-term investment by the business, CGT rules apply on disposal",
+    "The distinction between trading stock and CGT asset depends on the taxpayer's purpose, frequency of transactions, and overall conduct",
+    "GST does not apply to sales of digital currency from 1 July 2017 under the GST Act amendments",
+    "Sole traders must include Bitcoin gains in their personal income tax return and pay tax at their marginal rate",
+    "The CGT discount of 50% is available for Bitcoin held for more than 12 months (as a CGT asset, not trading stock)",
+    "Small business CGT concessions (Division 152 ITAA 1997) may apply if the sole trader's aggregated turnover is under $2 million and net asset value is under $6 million",
+    "Business Activity Statement (BAS) reporting obligations continue as normal — Bitcoin transactions do not attract GST but must be considered in BAS preparation",
+    "Record keeping requirements are the same as for any business income and expenses — 5 year retention period"
+  ],
+  "commonRisks": [
+    "Confusion between personal and business Bitcoin holdings leading to incorrect tax treatment",
+    "Failure to maintain adequate records of acquisition costs, leading to inability to calculate accurate capital gains",
+    "Being classified as a Bitcoin trader by the ATO when the intention was to hold as an investment (or vice versa), resulting in unexpected tax consequences",
+    "Loss of Bitcoin through poor security practices with no corporate veil or insurance protection",
+    "Personal liability exposure — as a sole trader, all business debts and liabilities (including losses from Bitcoin holdings) are personal liabilities",
+    "Insufficient cash reserves to pay tax on unrealised or realised gains from Bitcoin appreciation",
+    "Failure to report Bitcoin disposals including when using Bitcoin to pay for goods or services",
+    "Not accounting for Bitcoin received as payment for goods or services as assessable income",
+    "Inadequate separation between personal and business finances making it difficult to track the business purpose of Bitcoin holdings",
+    "Exchange or custody failure with no recourse beyond personal claims"
+  ],
+  "recommendedProfessionals": [
+    "Registered Tax Agent with cryptocurrency experience",
+    "Registered BAS Agent",
+    "Accountant familiar with small business CGT concessions",
+    "Financial Adviser (if seeking strategic advice)",
+    "IT Security Consultant (for custody and key management)"
+  ]
+}

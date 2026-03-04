@@ -1,0 +1,44 @@
+{
+  "entityType": "SMSF",
+  "regulatoryBodies": ["ATO", "APRA"],
+  "keyLegislation": [
+    "Superannuation Industry (Supervision) Act 1993 (SIS Act)",
+    "Superannuation Industry (Supervision) Regulations 1994",
+    "Income Tax Assessment Act 1997 (ITAA 1997)",
+    "Anti-Money Laundering and Counter-Terrorism Financing Act 2006 (AML/CTF Act)",
+    "Corporations Act 2001 (for financial product considerations)"
+  ],
+  "keyConsiderations": [
+    "Bitcoin must be held in accordance with the fund's investment strategy as required by SIS Regulation 4.09",
+    "The sole purpose test under s62 SIS Act must be satisfied — all investments must be maintained for the sole purpose of providing retirement benefits to members",
+    "SMSFs cannot acquire assets from related parties unless they are listed securities or business real property — Bitcoin purchased from a member's personal holdings is prohibited",
+    "The fund's trust deed must not contain provisions that restrict or prohibit cryptocurrency investments",
+    "Investment strategy must be updated to reflect the inclusion of digital assets, including risk assessment and liquidity considerations",
+    "Arm's length dealing requirements under s109 SIS Act apply — Bitcoin must be acquired at market value from unrelated parties",
+    "Separation of assets — Bitcoin must be held separately from members' personal assets and clearly identifiable as fund assets",
+    "SMSF trustees have a fiduciary duty to act in the best interests of all members and must be able to demonstrate the investment rationale",
+    "ATO has confirmed that cryptocurrency is a CGT asset for SMSFs and gains or losses are calculated under standard CGT rules",
+    "The 1/3 discount on capital gains applies to assets held longer than 12 months within the fund (taxed at 10% instead of 15%)",
+    "Segregated current pension assets may be entitled to a 0% tax rate on capital gains",
+    "Annual audit requirements mean the SMSF auditor must be able to verify the existence, ownership, and valuation of Bitcoin holdings"
+  ],
+  "commonRisks": [
+    "Breach of the sole purpose test if Bitcoin is used for personal purposes or speculative trading inconsistent with a retirement objective",
+    "Failure to update the investment strategy, which may result in a contravention notice from the ATO",
+    "Loss of private keys resulting in permanent loss of fund assets — trustees may be personally liable for negligence",
+    "Using a non-compliant or unregulated exchange that could expose the fund to counterparty risk",
+    "Inadvertent related-party transaction breaches if Bitcoin is transferred from a member's personal wallet",
+    "Concentration risk — over-allocation to a single volatile asset class without adequate diversification",
+    "Audit complications if the auditor cannot independently verify Bitcoin holdings or valuations",
+    "Non-compliance with AML/CTF requirements at the exchange level affecting the fund's ability to transact",
+    "Tax reporting errors due to the complexity of tracking cost bases across multiple transactions",
+    "Regulatory change risk — potential future restrictions on SMSFs holding digital assets"
+  ],
+  "recommendedProfessionals": [
+    "SMSF Specialist Adviser (SSA) with digital asset experience",
+    "SMSF Auditor (approved by ASIC under s128B SIS Act)",
+    "Registered Tax Agent with cryptocurrency expertise",
+    "Solicitor experienced in SMSF trust deed amendments",
+    "Financial Adviser holding an AFSL with authority to advise on SMSFs"
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "entityType": "Sole Trader",
+  "categories": [
+    {
+      "name": "Internal Approval & Governance",
+      "description": "Establish a clear decision framework and governance approach for Bitcoin treasury management as a sole trader.",
+      "items": [
+        {
+          "title": "Define the investment purpose and rationale",
+          "description": "Document why you are holding Bitcoin as a business treasury asset. Clarify whether the purpose is long-term value storage, portfolio diversification, or another business objective. This documentation supports the CGT asset classification and demonstrates intent to the ATO if queried.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Set a maximum allocation limit",
+          "description": "Determine the maximum percentage or dollar amount of business reserves to allocate to Bitcoin. Consider your cash flow needs, upcoming tax obligations, business expenses, and personal risk tolerance. Document this limit in writing.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 2
+        },
+        {
+          "title": "Create a written investment policy",
+          "description": "Draft a simple investment policy that covers: allocation limits, rebalancing triggers, circumstances under which Bitcoin would be sold, and how gains will be managed (e.g., setting aside funds for tax). Even as a sole trader, a written policy provides discipline and evidence of a considered approach.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Review personal insurance and liability position",
+          "description": "As a sole trader, you have unlimited personal liability. Review your insurance arrangements (professional indemnity, public liability) and consider whether holding a volatile asset changes your risk profile. Consider income protection insurance if Bitcoin represents a material portion of your reserves.",
+          "responsible": "Sole Trader / Insurance Adviser",
+          "estimatedDays": 5,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Legal & Compliance Setup",
+      "description": "Ensure all legal and regulatory requirements are understood and met.",
+      "items": [
+        {
+          "title": "Determine the correct tax classification",
+          "description": "Work with a tax agent to confirm whether your Bitcoin holdings will be classified as CGT assets (investment) or trading stock (business of trading). This is the most critical tax decision and affects all subsequent reporting.",
+          "responsible": "Tax Agent / Sole Trader",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Review ABN and business registration details",
+          "description": "Confirm your ABN is active and your business registration details are current. If your business activity statement (industry code) needs updating to reflect a broader investment activity, discuss with your tax agent.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 2
+        },
+        {
+          "title": "Understand GST implications",
+          "description": "Confirm understanding of the GST-free treatment of digital currency sales and how it interacts with any GST-liable supplies you make. If you accept Bitcoin as payment for GST-liable goods or services, ensure the GST on the underlying supply is still correctly reported.",
+          "responsible": "Tax Agent / BAS Agent",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Review eligibility for small business CGT concessions",
+          "description": "Assess whether you meet the basic conditions for Division 152 small business CGT concessions (turnover under $2 million or net CGT assets under $6 million). If potentially eligible, discuss with your tax agent how Bitcoin holdings factor into the net asset value test.",
+          "responsible": "Tax Agent",
+          "estimatedDays": 5,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "Accounting & Tax Preparation",
+      "description": "Set up accounting systems and processes for accurate tax reporting of Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Engage a tax agent with cryptocurrency experience",
+          "description": "Appoint or confirm a registered tax agent who has experience with cryptocurrency taxation for individual taxpayers and sole traders. Discuss the expected tax treatment, reporting requirements, and any advance rulings that may be appropriate.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 7,
+          "order": 1
+        },
+        {
+          "title": "Set up cryptocurrency tax tracking software",
+          "description": "Select and set up cryptocurrency tax software (e.g., Koinly, CryptoTaxCalculator, or Swyftx Tax Reports) that can connect to your chosen exchange via API and automatically track cost bases, gains, and losses. Test the software with a sample transaction.",
+          "responsible": "Sole Trader / Accountant",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Establish a cost base tracking methodology",
+          "description": "Decide on a cost base calculation method (e.g., FIFO, specific identification) and apply it consistently. Document the chosen method. The ATO does not mandate a specific method but requires consistency.",
+          "responsible": "Tax Agent / Sole Trader",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Create a record-keeping system",
+          "description": "Set up a system to record every Bitcoin transaction with: date, AUD value, exchange used, wallet addresses, transaction hash, fees paid, and purpose. Records must be retained for at least 5 years. Use both software and a backup spreadsheet.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 4
+        },
+        {
+          "title": "Plan for tax payment obligations",
+          "description": "Establish a process for setting aside funds to cover tax on Bitcoin gains. Consider maintaining a separate savings account for tax provisions. Review PAYG instalment amounts with your tax agent if Bitcoin gains materially increase your income.",
+          "responsible": "Sole Trader / Tax Agent",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Custody & Security Setup",
+      "description": "Establish secure storage and management of Bitcoin holdings.",
+      "items": [
+        {
+          "title": "Research and select a custody solution",
+          "description": "Evaluate custody options: hardware wallet (Ledger, Trezor, ColdCard), exchange custody, or a combination. Consider security, convenience, cost, and your technical capability. For sole traders, a hardware wallet provides strong security with direct control.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 5,
+          "order": 1
+        },
+        {
+          "title": "Purchase and set up hardware wallet",
+          "description": "Purchase a hardware wallet directly from the manufacturer or authorised reseller (never second-hand). Set up the device following the manufacturer's instructions. Generate a new seed phrase and verify the backup before transferring any Bitcoin.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 5,
+          "order": 2
+        },
+        {
+          "title": "Secure seed phrase backup",
+          "description": "Write down the seed phrase on durable material (metal backup recommended). Store in a fireproof safe, safety deposit box, or other secure location. Never store the seed phrase digitally (no photos, no cloud storage, no text files).",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 3
+        },
+        {
+          "title": "Set up succession and recovery plan",
+          "description": "As a sole trader, you are the single point of failure. Create a plan for what happens to your Bitcoin if you become incapacitated. Consider: a sealed letter with instructions (not the seed phrase) held by a solicitor, or a multi-signature arrangement with a trusted person.",
+          "responsible": "Sole Trader / Solicitor",
+          "estimatedDays": 7,
+          "order": 4
+        },
+        {
+          "title": "Implement operational security practices",
+          "description": "Set up two-factor authentication on all exchange accounts (use a hardware key or authenticator app, not SMS). Use a dedicated email address for exchange accounts. Use a password manager with a strong master password. Enable withdrawal address whitelisting on exchanges.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Banking & Fiat On-ramp",
+      "description": "Set up the banking and exchange infrastructure needed to purchase Bitcoin.",
+      "items": [
+        {
+          "title": "Confirm business bank account supports exchange transfers",
+          "description": "Contact your bank to confirm that transfers to cryptocurrency exchanges are not blocked or restricted. Some Australian banks have policies regarding cryptocurrency-related transactions. If blocked, consider opening an account with a crypto-friendly bank.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Register with an AUSTRAC-registered exchange",
+          "description": "Open an account on an AUSTRAC-registered Australian exchange (e.g., Independent Reserve, BTC Markets, CoinSpot, Kraken). Register using your business name and ABN where the exchange supports business accounts, or your personal details if business accounts are not available.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 7,
+          "order": 2
+        },
+        {
+          "title": "Complete KYC verification",
+          "description": "Provide all required identification documents to the exchange. This typically includes government-issued photo ID, proof of address, and for business accounts, your ABN and business registration details.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Link bank account and test deposit",
+          "description": "Link your business bank account to the exchange and make a small test deposit to verify the connection works. Confirm the funds arrive and are available for trading.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "name": "First Purchase Execution",
+      "description": "Execute the initial Bitcoin purchase in a controlled and documented manner.",
+      "items": [
+        {
+          "title": "Execute a small test purchase",
+          "description": "Make a small initial Bitcoin purchase (e.g., $100-$500) to test the complete workflow: bank transfer, exchange purchase, withdrawal to hardware wallet, and record keeping. Verify every step works before committing larger amounts.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 3,
+          "order": 1
+        },
+        {
+          "title": "Test withdrawal to hardware wallet",
+          "description": "Withdraw the test purchase from the exchange to your hardware wallet. Verify the Bitcoin arrives in your wallet. Record the transaction hash and wallet address. Confirm you can see the balance on the hardware wallet.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 2
+        },
+        {
+          "title": "Execute the planned purchase",
+          "description": "Make the planned Bitcoin purchase according to your investment policy. Consider using dollar-cost averaging (multiple smaller purchases over time) to reduce timing risk. Use limit orders rather than market orders to control the price.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 7,
+          "order": 3
+        },
+        {
+          "title": "Transfer to secure custody",
+          "description": "Withdraw all purchased Bitcoin from the exchange to your hardware wallet. Verify receipt and record all transaction details including: date, amount, exchange fee, blockchain fee, transaction hash, and receiving wallet address.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 4
+        },
+        {
+          "title": "Document the purchase comprehensively",
+          "description": "Record all purchase details in your tracking system: date of acquisition, total cost in AUD (including all fees), exchange confirmation numbers, blockchain transaction hashes, and the wallet address where Bitcoin is held.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 1,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "name": "Ongoing Maintenance Setup",
+      "description": "Establish processes for ongoing management, monitoring, and compliance.",
+      "items": [
+        {
+          "title": "Set up portfolio monitoring",
+          "description": "Choose a method to monitor your Bitcoin holdings value (portfolio tracker app, exchange dashboard, or manual tracking). Set up alerts for significant price movements that might trigger a review of your allocation policy.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 1
+        },
+        {
+          "title": "Schedule quarterly reviews",
+          "description": "Set calendar reminders for quarterly reviews of your Bitcoin position. Each review should assess: current allocation vs. policy limits, whether any rebalancing is needed, upcoming cash flow needs, and whether the investment rationale remains valid.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 1,
+          "order": 2
+        },
+        {
+          "title": "Establish year-end tax preparation process",
+          "description": "Before each 30 June, prepare: a summary of all Bitcoin transactions during the year, capital gains calculations, cost base records, and any Bitcoin held as trading stock (if applicable). Provide these to your tax agent well before the tax return deadline.",
+          "responsible": "Sole Trader / Tax Agent",
+          "estimatedDays": 5,
+          "order": 3
+        },
+        {
+          "title": "Review and update security practices annually",
+          "description": "Annually review: hardware wallet firmware (update if available), seed phrase backup integrity (verify it is still accessible and legible), exchange account security settings, and password manager entries. Test your recovery procedure.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 4
+        },
+        {
+          "title": "Monitor ATO guidance and regulatory changes",
+          "description": "Subscribe to ATO updates on cryptocurrency taxation. Monitor for changes to CGT rules, small business concessions, or new reporting requirements that may affect your Bitcoin holdings. Discuss any changes with your tax agent.",
+          "responsible": "Sole Trader / Tax Agent",
+          "estimatedDays": 1,
+          "order": 5
+        },
+        {
+          "title": "Review succession and recovery plan",
+          "description": "Annually review your succession plan to ensure it remains current. Update if you change custody arrangements, add new wallets, or if your personal circumstances change. Ensure the plan is accessible to the designated person in an emergency.",
+          "responsible": "Sole Trader",
+          "estimatedDays": 2,
+          "order": 6
+        }
+      ]
+    }
+  ]
+}

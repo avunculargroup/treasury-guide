@@ -1,0 +1,46 @@
+{
+  "entityType": "Private Company",
+  "regulatoryBodies": ["ATO", "ASIC"],
+  "keyLegislation": [
+    "Corporations Act 2001",
+    "Income Tax Assessment Act 1997 (ITAA 1997)",
+    "Income Tax Assessment Act 1936 (ITAA 1936)",
+    "A New Tax System (Goods and Services Tax) Act 1999 (GST Act)",
+    "Anti-Money Laundering and Counter-Terrorism Financing Act 2006 (AML/CTF Act)",
+    "Taxation Administration Act 1953"
+  ],
+  "keyConsiderations": [
+    "Directors owe statutory duties under the Corporations Act including duties of care and diligence (s180), good faith (s181), proper purpose (s184), and to prevent insolvent trading (s588G)",
+    "The business judgment rule (s180(2)) provides protection for directors who make informed, good faith decisions — proper documentation of the Bitcoin investment decision is essential",
+    "Bitcoin gains are taxed at the company tax rate: 25% for base rate entities (aggregated turnover under $50 million) or 30% for other companies",
+    "The 50% CGT discount is NOT available to companies — capital gains are taxed in full at the company rate",
+    "Division 7A of the ITAA 1936 applies — any Bitcoin transferred from the company to a shareholder or associate may be deemed a dividend unless proper loan agreements are in place",
+    "If the company carries on a business of Bitcoin trading, gains are assessable as ordinary income (not capital gains) under s6-5 ITAA 1997",
+    "The company's constitution should be reviewed to ensure it permits investment in digital assets",
+    "Related-party transactions involving Bitcoin must be conducted at arm's length and properly documented",
+    "ASIC annual reporting requirements apply — financial statements must disclose Bitcoin holdings",
+    "Small business CGT concessions (Division 152) may be available if the company has an aggregated turnover under $2 million and the net CGT asset value is under $6 million, but only apply when shares in the company are sold (not when the company sells Bitcoin)",
+    "Franking implications — tax paid on Bitcoin gains creates franking credits that can be distributed to shareholders via franked dividends",
+    "Private company anti-avoidance provisions (Part IVA) may apply if Bitcoin arrangements are structured primarily to obtain a tax benefit"
+  ],
+  "commonRisks": [
+    "Director liability if the investment decision is not made with adequate care, diligence, and in good faith",
+    "Insolvent trading risk if Bitcoin losses impair the company's ability to pay its debts as and when they fall due",
+    "Division 7A deemed dividend if Bitcoin is provided to shareholders or associates without proper documentation",
+    "Incorrect tax treatment — classifying trading profits as capital gains or vice versa",
+    "Failure to maintain adequate records, leading to ATO penalties and interest",
+    "Concentration risk — over-allocating company reserves to a single volatile asset",
+    "Loss of Bitcoin through security failures, exchange insolvency, or key management errors",
+    "ASIC compliance issues if financial statements do not properly disclose Bitcoin holdings",
+    "Related-party transaction breaches if Bitcoin is acquired from or sold to directors or related entities at non-arm's length terms",
+    "Cash flow risk — inability to meet operational obligations if Bitcoin value declines significantly",
+    "Shareholder disputes if minority shareholders disagree with the investment decision"
+  ],
+  "recommendedProfessionals": [
+    "Solicitor experienced in corporate law and Corporations Act compliance",
+    "Registered Tax Agent with corporate tax and cryptocurrency experience",
+    "External Auditor (if the company is required to be audited or elects to be audited)",
+    "Accountant familiar with AASB standards for digital asset accounting",
+    "Financial Adviser with corporate treasury experience"
+  ]
+}

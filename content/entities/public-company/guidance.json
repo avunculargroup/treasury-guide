@@ -1,0 +1,44 @@
+{
+  "entityType": "PUBLIC_COMPANY",
+  "regulatoryBodies": ["ASIC", "ASX", "ATO", "APRA"],
+  "keyLegislation": [
+    "Corporations Act 2001",
+    "ASX Listing Rules",
+    "Income Tax Assessment Act 1997 (ITAA 1997)",
+    "Anti-Money Laundering and Counter-Terrorism Financing Act 2006 (AML/CTF Act)",
+    "Australian Accounting Standards (AASB)"
+  ],
+  "keyConsiderations": [
+    "ASX continuous disclosure obligations require immediate disclosure of any material Bitcoin treasury decision under Listing Rule 3.1",
+    "Directors owe fiduciary duties under ss 180-184 of the Corporations Act — the business judgment rule (s 180(2)) requires demonstrable due diligence",
+    "Shareholder approval may be required for significant changes in the nature of the company's activities under ASX Listing Rule 11.1",
+    "Fair value measurement of Bitcoin at each reporting date under AASB 13 will create P&L volatility",
+    "ASIC may scrutinise disclosure and governance around Bitcoin treasury decisions, particularly for companies with retail shareholders",
+    "Institutional investors and proxy advisers may have policies on cryptocurrency exposure that affect voting and engagement",
+    "Enhanced financial reporting and audit requirements apply — Bitcoin holdings must be disclosed in the notes to financial statements",
+    "Market announcement obligations for material acquisitions or disposals of Bitcoin",
+    "Related party transaction rules apply if directors or related entities have cryptocurrency interests",
+    "Continuous disclosure obligations mean price-sensitive Bitcoin transactions must be disclosed promptly"
+  ],
+  "commonRisks": [
+    "ASX query or enforcement action for inadequate continuous disclosure of Bitcoin-related matters",
+    "Shareholder class action risk if Bitcoin losses are material and disclosure was inadequate",
+    "ASIC investigation for breach of directors' duties if the investment decision was not properly governed",
+    "Significant P&L volatility from fair value remeasurement, affecting share price and analyst sentiment",
+    "Reputational risk with institutional investors who may view Bitcoin as speculative",
+    "Proxy adviser opposition at AGM if the Bitcoin strategy is seen as outside core business",
+    "Custody and security risk — loss of Bitcoin would be a material event requiring disclosure",
+    "Regulatory change risk — new ASIC or ASX requirements for digital asset holdings",
+    "Tax complexity including CGT, transfer pricing (for multinational groups), and thin capitalisation considerations",
+    "Banking relationship risk — some banks are cautious about crypto-related entities"
+  ],
+  "recommendedProfessionals": [
+    "Corporate Lawyer (ASX/ASIC experience)",
+    "Company Secretary",
+    "External Auditor",
+    "Tax Adviser (corporate crypto experience)",
+    "Investor Relations Consultant",
+    "Institutional Custody Provider",
+    "Risk Management Adviser"
+  ]
+}
