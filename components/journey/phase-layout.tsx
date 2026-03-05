@@ -11,28 +11,34 @@ interface PhaseLayoutProps {
 
 export function PhaseLayout({ title, phase, entityLabel, displayName, children }: PhaseLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="border-b border-navy-100 bg-white px-6 py-4">
+    <div className="flex min-h-screen flex-col bg-[#FAFAF8]">
+      <header className="border-b border-[#E8E6E0] bg-white px-6 py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-4">
             <Link
               href="/journey"
-              className="text-navy-400 transition-colors hover:text-navy-700"
+              className="text-sm text-navy-400 transition-colors hover:text-navy-700"
             >
               ← Dashboard
             </Link>
-            <div className="h-6 w-px bg-navy-200" />
+            <div className="h-5 w-px bg-[#E8E6E0]" />
             <div>
-              <h1 className="text-lg font-bold text-navy-900">
+              <h1 className="font-display text-base font-semibold text-navy-900">
                 Phase {phase}: {title}
               </h1>
-              <p className="text-sm text-navy-500">{displayName} — {entityLabel}</p>
+              <p className="text-xs text-navy-400">
+                {displayName} — {entityLabel}
+              </p>
             </div>
+          </div>
+          <div className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Bitcoin Treasury Guide" className="h-7 w-7 opacity-60" />
           </div>
         </div>
       </header>
 
-      <main className="flex-1 px-6 py-8">
+      <main className="flex-1 px-6 py-10">
         <div className="mx-auto max-w-4xl">{children}</div>
       </main>
 

@@ -14,13 +14,13 @@ export function ProgressBar({ value, max = 100, className, label }: ProgressBarP
     <div className={cn('w-full', className)}>
       {label && (
         <div className="mb-1 flex items-center justify-between text-sm">
-          <span className="text-navy-600">{label}</span>
-          <span className="font-medium text-navy-800">{percent}%</span>
+          <span className="text-navy-500">{label}</span>
+          <span className="font-data font-medium text-navy-900">{percent}%</span>
         </div>
       )}
-      <div className="h-2 w-full overflow-hidden rounded-full bg-navy-100">
+      <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#E8E6E0]">
         <div
-          className="h-full rounded-full bg-brand-500 transition-all duration-300"
+          className="h-full rounded-full bg-[#C9A84C] transition-all duration-300"
           style={{ width: `${percent}%` }}
         />
       </div>

@@ -19,17 +19,28 @@ interface PlanContentProps {
 }
 
 const CUSTODY_OPTIONS: { value: CustodyPreference; label: string; description: string }[] = [
-  { value: 'exchange', label: 'Exchange Custody', description: 'Hold Bitcoin on a regulated exchange' },
-  { value: 'third_party', label: 'Third-Party Custodian', description: 'Use an institutional custody provider' },
-  { value: 'self_custody', label: 'Self-Custody', description: 'Manage your own hardware wallet' },
-  { value: 'multi_sig', label: 'Multi-Signature', description: 'Distributed key management requiring multiple approvals' },
+  { value: 'exchange', label: 'Exchange custody', description: 'Hold Bitcoin on a regulated exchange' },
+  { value: 'third_party', label: 'Third-party custodian', description: 'Use an institutional custody provider' },
+  { value: 'self_custody', label: 'Self-custody', description: 'Manage your own hardware wallet' },
+  { value: 'multi_sig', label: 'Multi-signature', description: 'Distributed key management requiring multiple approvals' },
 ];
 
 const ALLOCATION_OPTIONS: { value: AllocationApproach; label: string; description: string }[] = [
-  { value: 'dca', label: 'Dollar-Cost Average (DCA)', description: 'Regular purchases over time to smooth out volatility' },
-  { value: 'lump_sum', label: 'Lump Sum', description: 'Single purchase of the target allocation' },
+  { value: 'dca', label: 'Dollar-cost average (DCA)', description: 'Regular purchases over time to smooth out volatility' },
+  { value: 'lump_sum', label: 'Lump sum', description: 'Single purchase of the target allocation' },
   { value: 'undecided', label: 'Undecided', description: 'Need more guidance before choosing' },
 ];
+
+const radioOptionClass = (selected: boolean) =>
+  cn(
+    'flex cursor-pointer items-start gap-3 rounded-lg border px-4 py-3 transition-colors',
+    selected
+      ? 'border-[#C9A84C] bg-[#FAF5E8]'
+      : 'border-[#E8E6E0] hover:bg-[#F4F4F1]'
+  );
+
+const toggleClass = (on: boolean) =>
+  cn('relative h-6 w-11 shrink-0 rounded-full transition-colors duration-150', on ? 'bg-[#C9A84C]' : 'bg-[#D5D2CA]');
 
 export function PlanContent({ entityType, assessmentResponses, isComplete }: PlanContentProps) {
   const router = useRouter();
@@ -70,7 +81,6 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
         return;
       }
 
-      // Complete phase 3 and go to track
       await fetch('/api/progress', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -90,14 +100,14 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
     return (
       <div className="space-y-6">
         <Card>
-          <h2 className="text-xl font-bold text-navy-900">Phase 3 Complete</h2>
+          <h2 className="font-display text-xl font-semibold text-navy-900">Phase 3 complete</h2>
           <p className="mt-2 text-navy-600">
             Your implementation checklist has been generated. Head to the Track phase to monitor your progress.
           </p>
         </Card>
         <div className="flex gap-3">
-          <Button variant="outline" onClick={() => router.push('/journey')}>
-            Back to Dashboard
+          <Button variant="secondary" onClick={() => router.push('/journey')}>
+            Back to dashboard
           </Button>
           <Button onClick={() => router.push('/journey/track')}>
             Go to Track
@@ -108,20 +118,20 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <Card>
-        <h2 className="text-xl font-bold text-navy-900">Build Your Strategy</h2>
-        <p className="mt-1 text-sm text-navy-500">
-          Configure your implementation preferences. When you're done, we'll generate a personalised
+        <h2 className="font-display text-xl font-semibold text-navy-900">Build your strategy</h2>
+        <p className="mt-1 text-sm leading-relaxed text-navy-500">
+          Configure your implementation preferences. When you&apos;re done, we&apos;ll generate a personalised
           implementation checklist for your entity.
         </p>
-        <div className="mt-4 flex gap-2">
+        <div className="mt-5 flex gap-1.5">
           {[1, 2, 3].map((s) => (
             <div
               key={s}
               className={cn(
-                'h-1.5 flex-1 rounded-full',
-                s <= step ? 'bg-brand-500' : 'bg-navy-200'
+                'h-1 flex-1 rounded-full transition-colors',
+                s <= step ? 'bg-[#C9A84C]' : 'bg-[#E8E6E0]'
               )}
             />
           ))}
@@ -131,21 +141,13 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
       {step === 1 && (
         <div className="space-y-4">
           <Card>
-            <h3 className="font-semibold text-navy-900">Custody Preference</h3>
+            <h3 className="font-semibold text-navy-900">Custody preference</h3>
             <p className="mt-1 text-sm text-navy-500">
               How do you want to secure your Bitcoin holdings?
             </p>
             <div className="mt-4 space-y-2">
               {CUSTODY_OPTIONS.map((opt) => (
-                <label
-                  key={opt.value}
-                  className={cn(
-                    'flex cursor-pointer items-start gap-3 rounded-lg border px-4 py-3 transition-colors',
-                    responses.custodyPreference === opt.value
-                      ? 'border-brand-500 bg-brand-50'
-                      : 'border-navy-100 hover:bg-navy-50'
-                  )}
-                >
+                <label key={opt.value} className={radioOptionClass(responses.custodyPreference === opt.value)}>
                   <input
                     type="radio"
                     name="custody"
@@ -154,10 +156,10 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
                     onChange={() =>
                       setResponses((prev) => ({ ...prev, custodyPreference: opt.value }))
                     }
-                    className="mt-0.5 accent-brand-500"
+                    className="mt-0.5 accent-[#C9A84C]"
                   />
                   <div>
-                    <p className="text-sm font-medium text-navy-800">{opt.label}</p>
+                    <p className="text-sm font-medium text-navy-900">{opt.label}</p>
                     <p className="text-xs text-navy-500">{opt.description}</p>
                   </div>
                 </label>
@@ -174,18 +176,10 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
       {step === 2 && (
         <div className="space-y-4">
           <Card>
-            <h3 className="font-semibold text-navy-900">Allocation Approach</h3>
+            <h3 className="font-semibold text-navy-900">Allocation approach</h3>
             <div className="mt-4 space-y-2">
               {ALLOCATION_OPTIONS.map((opt) => (
-                <label
-                  key={opt.value}
-                  className={cn(
-                    'flex cursor-pointer items-start gap-3 rounded-lg border px-4 py-3 transition-colors',
-                    responses.allocationApproach === opt.value
-                      ? 'border-brand-500 bg-brand-50'
-                      : 'border-navy-100 hover:bg-navy-50'
-                  )}
-                >
+                <label key={opt.value} className={radioOptionClass(responses.allocationApproach === opt.value)}>
                   <input
                     type="radio"
                     name="allocation"
@@ -194,10 +188,10 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
                     onChange={() =>
                       setResponses((prev) => ({ ...prev, allocationApproach: opt.value }))
                     }
-                    className="mt-0.5 accent-brand-500"
+                    className="mt-0.5 accent-[#C9A84C]"
                   />
                   <div>
-                    <p className="text-sm font-medium text-navy-800">{opt.label}</p>
+                    <p className="text-sm font-medium text-navy-900">{opt.label}</p>
                     <p className="text-xs text-navy-500">{opt.description}</p>
                   </div>
                 </label>
@@ -206,7 +200,7 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
           </Card>
 
           <Card>
-            <h3 className="font-semibold text-navy-900">Target Allocation</h3>
+            <h3 className="font-semibold text-navy-900">Target allocation</h3>
             <p className="mt-1 text-sm text-navy-500">
               What percentage of your treasury would you consider allocating to Bitcoin?
             </p>
@@ -223,14 +217,14 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
                       targetAllocationPercent: Number(e.target.value),
                     }))
                   }
-                  className="flex-1 accent-brand-500"
+                  className="flex-1 accent-[#C9A84C]"
                 />
-                <span className="w-12 text-right text-lg font-bold text-brand-600">
+                <span className="font-data w-12 text-right text-lg font-semibold text-[#9A7A2E]">
                   {responses.targetAllocationPercent}%
                 </span>
               </div>
               <p className="mt-2 text-xs text-navy-400">
-                Most conservative strategies suggest 1-5% of total reserves.
+                Most conservative strategies suggest 1–5% of total reserves.
               </p>
             </div>
           </Card>
@@ -245,9 +239,9 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
       {step === 3 && (
         <div className="space-y-4">
           <Card>
-            <h3 className="font-semibold text-navy-900">Additional Details</h3>
-            <div className="mt-4 space-y-4">
-              <label className="flex items-center justify-between">
+            <h3 className="font-semibold text-navy-900">Additional details</h3>
+            <div className="mt-4 space-y-5">
+              <label className="flex items-center justify-between gap-4">
                 <span className="text-sm text-navy-700">Board approval required?</span>
                 <button
                   type="button"
@@ -257,21 +251,18 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
                       boardApprovalRequired: !prev.boardApprovalRequired,
                     }))
                   }
-                  className={cn(
-                    'relative h-6 w-11 rounded-full transition-colors',
-                    responses.boardApprovalRequired ? 'bg-brand-500' : 'bg-navy-200'
-                  )}
+                  className={toggleClass(responses.boardApprovalRequired)}
                 >
                   <span
                     className={cn(
-                      'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform',
+                      'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-150',
                       responses.boardApprovalRequired && 'translate-x-5'
                     )}
                   />
                 </button>
               </label>
 
-              <label className="flex items-center justify-between">
+              <label className="flex items-center justify-between gap-4">
                 <span className="text-sm text-navy-700">Do you have an existing crypto policy?</span>
                 <button
                   type="button"
@@ -281,14 +272,11 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
                       hasExistingCryptoPolicy: !prev.hasExistingCryptoPolicy,
                     }))
                   }
-                  className={cn(
-                    'relative h-6 w-11 rounded-full transition-colors',
-                    responses.hasExistingCryptoPolicy ? 'bg-brand-500' : 'bg-navy-200'
-                  )}
+                  className={toggleClass(responses.hasExistingCryptoPolicy)}
                 >
                   <span
                     className={cn(
-                      'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform',
+                      'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-150',
                       responses.hasExistingCryptoPolicy && 'translate-x-5'
                     )}
                   />
@@ -299,32 +287,32 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
 
           <Card>
             <h3 className="font-semibold text-navy-900">Summary</h3>
-            <div className="mt-3 space-y-2 text-sm">
+            <div className="mt-4 space-y-2.5 border-t border-[#E8E6E0] pt-4 text-sm">
               <div className="flex justify-between">
-                <span className="text-navy-500">Custody:</span>
-                <span className="font-medium text-navy-800">
+                <span className="text-navy-500">Custody</span>
+                <span className="font-medium text-navy-900">
                   {CUSTODY_OPTIONS.find((o) => o.value === responses.custodyPreference)?.label}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-navy-500">Allocation:</span>
-                <span className="font-medium text-navy-800">
+                <span className="text-navy-500">Approach</span>
+                <span className="font-medium text-navy-900">
                   {ALLOCATION_OPTIONS.find((o) => o.value === responses.allocationApproach)?.label}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-navy-500">Target %:</span>
-                <span className="font-medium text-navy-800">{responses.targetAllocationPercent}%</span>
+                <span className="text-navy-500">Target allocation</span>
+                <span className="font-data font-medium text-navy-900">{responses.targetAllocationPercent}%</span>
               </div>
             </div>
           </Card>
 
-          {error && <p className="text-center text-sm text-red-600">{error}</p>}
+          {error && <p className="text-center text-sm text-[#B04040]">{error}</p>}
 
           <div className="flex justify-between">
             <Button variant="ghost" onClick={() => setStep(2)}>Back</Button>
             <Button size="lg" onClick={handleGenerateChecklist} disabled={isGenerating}>
-              {isGenerating ? 'Generating Checklist...' : 'Generate Implementation Checklist'}
+              {isGenerating ? 'Generating checklist...' : 'Generate implementation checklist'}
             </Button>
           </div>
         </div>

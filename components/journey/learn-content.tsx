@@ -52,32 +52,34 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
   return (
     <div className="flex gap-8">
       {/* Sidebar nav */}
-      <nav className="hidden w-64 shrink-0 lg:block">
-        <div className="sticky top-8 space-y-1">
+      <nav className="hidden w-60 shrink-0 lg:block">
+        <div className="sticky top-8 space-y-0.5">
           {modules.map((mod, i) => (
             <button
               key={mod.id}
               onClick={() => setActiveModule(i)}
               className={cn(
-                'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors',
+                'flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm transition-colors',
                 activeModule === i
-                  ? 'bg-brand-100 text-brand-700 font-medium'
-                  : 'text-navy-600 hover:bg-navy-50'
+                  ? 'bg-[#F0E4C0] text-[#9A7A2E] font-medium'
+                  : 'text-navy-500 hover:bg-[#F4F4F1] hover:text-navy-900'
               )}
             >
               <span
                 className={cn(
-                  'flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs',
+                  'flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-data text-xs',
                   completedModules.has(i)
-                    ? 'bg-green-100 text-green-700'
-                    : 'bg-navy-100 text-navy-500'
+                    ? 'bg-[#E8F4EF] text-[#3D7A5E]'
+                    : activeModule === i
+                      ? 'bg-[#C9A84C] text-white'
+                      : 'bg-[#F4F4F1] text-navy-400'
                 )}
               >
                 {completedModules.has(i) ? '✓' : i + 1}
               </span>
               <span className="truncate">{mod.title}</span>
               {mod.isEntitySpecific && (
-                <span className="ml-auto shrink-0 rounded bg-brand-50 px-1.5 py-0.5 text-[10px] font-medium text-brand-600">
+                <span className="ml-auto shrink-0 rounded-[4px] bg-[#F0E4C0] px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[#9A7A2E]">
                   Entity
                 </span>
               )}
@@ -93,7 +95,7 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
           <select
             value={activeModule}
             onChange={(e) => setActiveModule(Number(e.target.value))}
-            className="w-full rounded-lg border border-navy-200 px-3 py-2 text-sm"
+            className="w-full rounded-md border border-[#E8E6E0] bg-white px-3 py-2 text-sm text-navy-900 focus:border-[#C9A84C] focus:outline-none"
           >
             {modules.map((mod, i) => (
               <option key={mod.id} value={i}>
@@ -106,7 +108,7 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
         <Card>
           <MarkdownContent content={modules[activeModule]?.content || ''} />
 
-          <div className="mt-8 flex items-center justify-between border-t border-navy-100 pt-4">
+          <div className="mt-8 flex items-center justify-between border-t border-[#E8E6E0] pt-5">
             <Button
               variant="ghost"
               onClick={() => setActiveModule(Math.max(0, activeModule - 1))}
@@ -117,10 +119,10 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
 
             {!completedModules.has(activeModule) ? (
               <Button onClick={() => markModuleComplete(activeModule)}>
-                Mark as Read
+                Mark as read
               </Button>
             ) : activeModule < modules.length - 1 ? (
-              <Button variant="outline" onClick={() => setActiveModule(activeModule + 1)}>
+              <Button variant="secondary" onClick={() => setActiveModule(activeModule + 1)}>
                 Next →
               </Button>
             ) : null}
@@ -128,18 +130,18 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
         </Card>
 
         {allCompleted && !isComplete && (
-          <div className="mt-6 text-center">
+          <div className="mt-8 text-center">
             <Button size="lg" onClick={handleCompletePhase} disabled={isSubmitting}>
-              {isSubmitting ? 'Completing...' : 'Complete Phase 1 & Continue'}
+              {isSubmitting ? 'Completing...' : 'Complete Phase 1 and continue'}
             </Button>
           </div>
         )}
 
         {isComplete && (
-          <div className="mt-6 text-center">
-            <p className="mb-2 text-sm text-green-600 font-medium">Phase 1 Complete</p>
-            <Button variant="outline" onClick={() => router.push('/journey')}>
-              Back to Dashboard
+          <div className="mt-8 text-center">
+            <p className="mb-3 text-sm font-medium text-[#3D7A5E]">Phase 1 complete</p>
+            <Button variant="secondary" onClick={() => router.push('/journey')}>
+              Back to dashboard
             </Button>
           </div>
         )}

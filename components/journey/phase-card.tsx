@@ -14,10 +14,10 @@ interface PhaseCardProps {
 }
 
 const STATUS_STYLES: Record<PhaseStatus, { badge: string; badgeText: string }> = {
-  LOCKED: { badge: 'bg-navy-100 text-navy-400', badgeText: 'Locked' },
-  AVAILABLE: { badge: 'bg-brand-100 text-brand-700', badgeText: 'Available' },
-  IN_PROGRESS: { badge: 'bg-blue-100 text-blue-700', badgeText: 'In Progress' },
-  COMPLETE: { badge: 'bg-green-100 text-green-700', badgeText: 'Complete' },
+  LOCKED: { badge: 'bg-[#F4F4F1] text-navy-400', badgeText: 'Locked' },
+  AVAILABLE: { badge: 'bg-[#F0E4C0] text-[#9A7A2E]', badgeText: 'Available' },
+  IN_PROGRESS: { badge: 'bg-[#F0E4C0] text-[#9A7A2E]', badgeText: 'In progress' },
+  COMPLETE: { badge: 'bg-[#E8F4EF] text-[#3D7A5E]', badgeText: 'Complete' },
 };
 
 export function PhaseCard({ phase, title, description, status, route }: PhaseCardProps) {
@@ -27,28 +27,33 @@ export function PhaseCard({ phase, title, description, status, route }: PhaseCar
   const content = (
     <Card
       interactive={isAccessible}
-      className={cn(!isAccessible && 'opacity-60 cursor-not-allowed')}
+      className={cn(!isAccessible && 'opacity-50 cursor-not-allowed')}
     >
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-4">
           <div
             className={cn(
-              'flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg font-bold',
+              'flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-data text-sm font-medium',
               status === 'COMPLETE'
-                ? 'bg-green-100 text-green-700'
+                ? 'bg-[#E8F4EF] text-[#3D7A5E]'
                 : status === 'LOCKED'
-                  ? 'bg-navy-100 text-navy-400'
-                  : 'bg-brand-100 text-brand-700'
+                  ? 'bg-[#F4F4F1] text-navy-400'
+                  : 'bg-[#F0E4C0] text-[#9A7A2E]'
             )}
           >
             {status === 'COMPLETE' ? '✓' : phase}
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-navy-900">{title}</h3>
-            <p className="mt-1 text-sm text-navy-500">{description}</p>
+            <h3 className="font-semibold text-navy-900">{title}</h3>
+            <p className="mt-1 text-sm leading-relaxed text-navy-500">{description}</p>
           </div>
         </div>
-        <span className={cn('rounded-full px-3 py-1 text-xs font-medium', style.badge)}>
+        <span
+          className={cn(
+            'shrink-0 rounded-[4px] px-2.5 py-1 text-xs font-medium uppercase tracking-wide',
+            style.badge
+          )}
+        >
           {style.badgeText}
         </span>
       </div>
