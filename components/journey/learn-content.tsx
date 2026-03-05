@@ -1,27 +1,98 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MarkdownContent } from '@/components/ui/markdown-content';
+import { InlineAdvisoryBanner } from '@/components/promotions/InlineAdvisoryBanner';
+import { isDismissed, dismiss } from '@/lib/promotions';
 import { cn } from '@/lib/utils';
 import type { LearnModule } from '@/lib/content';
+import type { EntityType } from '@/types';
 
 interface LearnContentProps {
   modules: LearnModule[];
   isComplete: boolean;
+  entityType: EntityType;
 }
 
-export function LearnContent({ modules, isComplete }: LearnContentProps) {
+// Modules that get ATO-entity-specific banner treatment
+const ATO_ENTITY_TYPES: EntityType[] = ['SMSF', 'PRIVATE_COMPANY', 'PUBLIC_COMPANY'];
+
+function getBannerConfig(
+  moduleId: string,
+  entityType: EntityType
+): { context: string; serviceId: string } | null {
+  if (moduleId === 'regulatory-context') {
+    return ATO_ENTITY_TYPES.includes(entityType)
+      ? { context: 'ATO tax treatment for your entity', serviceId: 'team_education' }
+      : { context: 'Australian regulatory obligations', serviceId: 'advisory_session' };
+  }
+  if (moduleId === 'custody-models') {
+    return { context: 'bitcoin custody and key management', serviceId: 'advisory_session' };
+  }
+  return null;
+}
+
+const LEARN_EXHAUSTED_KEY = 'learn_banner_exhausted';
+
+export function LearnContent({ modules, isComplete, entityType }: LearnContentProps) {
   const router = useRouter();
   const [activeModule, setActiveModule] = useState(0);
   const [completedModules, setCompletedModules] = useState<Set<number>>(
     isComplete ? new Set(modules.map((_, i) => i)) : new Set()
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(false);
+
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
 
   const allCompleted = modules.every((_, i) => completedModules.has(i));
+  const currentModule = modules[activeModule];
+  const bannerConfig = currentModule ? getBannerConfig(currentModule.id, entityType) : null;
+  const variantId = currentModule ? `inline_advisory_1_${currentModule.id}` : '';
+
+  const isExhausted = useCallback((): boolean => {
+    if (typeof window === 'undefined') return false;
+    return sessionStorage.getItem(LEARN_EXHAUSTED_KEY) === '1';
+  }, []);
+
+  // Reset banner visibility on module change
+  useEffect(() => {
+    setBannerVisible(false);
+  }, [activeModule]);
+
+  // Intersection Observer — show banner when bottom of card scrolls into view
+  useEffect(() => {
+    if (!bannerConfig || isExhausted()) return;
+    if (isDismissed(variantId)) return;
+
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setBannerVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [activeModule, bannerConfig, variantId, isExhausted]);
+
+  function handleBannerDismiss() {
+    // Mark all learn banners as exhausted for this session
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem(LEARN_EXHAUSTED_KEY, '1');
+    }
+    dismiss(variantId);
+    setBannerVisible(false);
+  }
 
   function markModuleComplete(index: number) {
     setCompletedModules((prev) => {
@@ -48,6 +119,12 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
       setIsSubmitting(false);
     }
   }
+
+  const showBanner =
+    bannerConfig &&
+    bannerVisible &&
+    !isExhausted() &&
+    !isDismissed(variantId);
 
   return (
     <div className="flex gap-8">
@@ -108,6 +185,9 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
         <Card>
           <MarkdownContent content={modules[activeModule]?.content || ''} />
 
+          {/* Sentinel observed for IntersectionObserver banner trigger */}
+          <div ref={sentinelRef} className="h-px" aria-hidden="true" />
+
           <div className="mt-8 flex items-center justify-between border-t border-[#E8E6E0] pt-5">
             <Button
               variant="ghost"
@@ -128,6 +208,19 @@ export function LearnContent({ modules, isComplete }: LearnContentProps) {
             ) : null}
           </div>
         </Card>
+
+        {/* Advisory banner — appears after eligible module scrolled into view */}
+        {showBanner && (
+          <div className="mt-4">
+            <InlineAdvisoryBanner
+              context={bannerConfig.context}
+              serviceId={bannerConfig.serviceId}
+              phase={1}
+              variantId={variantId}
+              onDismiss={handleBannerDismiss}
+            />
+          </div>
+        )}
 
         {allCompleted && !isComplete && (
           <div className="mt-8 text-center">

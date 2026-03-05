@@ -2,6 +2,7 @@ import { requireUserProfile } from '@/lib/user';
 import { PHASES, getEntityLabel } from '@/lib/utils';
 import { PhaseCard } from '@/components/journey/phase-card';
 import { DisclaimerFooter } from '@/components/ui/disclaimer-footer';
+import { DashboardBTSCard } from '@/components/promotions/DashboardBTSCard';
 import type { PhaseStatus } from '@/types';
 
 export default async function JourneyDashboard() {
@@ -48,6 +49,11 @@ export default async function JourneyDashboard() {
                 route={phase.route}
               />
             ))}
+          </div>
+
+          {/* BTS advisory card — below phase cards */}
+          <div className="mt-6">
+            <DashboardBTSCard />
           </div>
         </div>
       </main>

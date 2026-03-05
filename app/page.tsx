@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { DisclaimerFooter } from '@/components/ui/disclaimer-footer';
 import { Button } from '@/components/ui/button';
+import { LandingServicesStrip } from '@/components/promotions/LandingServicesStrip';
 
 const ENTITY_TYPES = [
   { label: 'SMSFs', desc: 'Navigate SIS Act compliance and SMSF investment strategy updates' },
@@ -144,6 +145,9 @@ export default async function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* BTS services strip — after four-phase journey section */}
+      <LandingServicesStrip />
 
       {/* Features */}
       <section className="px-6 py-20">

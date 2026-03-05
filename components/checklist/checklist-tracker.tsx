@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { BlockedItemPrompt } from '@/components/promotions/BlockedItemPrompt';
+import type { EntityType } from '@/types';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { cn } from '@/lib/utils';
 import type { ChecklistItemStatus } from '@/types';
@@ -23,6 +25,7 @@ interface ChecklistItemData {
 interface ChecklistTrackerProps {
   items: ChecklistItemData[];
   artifactId: string;
+  entityType: EntityType;
 }
 
 const STATUS_OPTIONS: { value: ChecklistItemStatus; label: string; color: string }[] = [
@@ -32,7 +35,7 @@ const STATUS_OPTIONS: { value: ChecklistItemStatus; label: string; color: string
   { value: 'BLOCKED', label: 'Blocked', color: 'bg-red-100 text-red-700' },
 ];
 
-export function ChecklistTracker({ items: initialItems, artifactId }: ChecklistTrackerProps) {
+export function ChecklistTracker({ items: initialItems, artifactId, entityType }: ChecklistTrackerProps) {
   const [items, setItems] = useState(initialItems);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
@@ -211,6 +214,16 @@ export function ChecklistTracker({ items: initialItems, artifactId }: ChecklistT
                             className="w-full rounded-lg border border-navy-200 px-3 py-1.5 text-sm"
                           />
                         </div>
+
+                        {/* BTS expert prompt — only shown when item is BLOCKED */}
+                        {item.status === 'BLOCKED' && (
+                          <BlockedItemPrompt
+                            checklistItemId={item.id}
+                            itemTitle={item.title}
+                            itemCategory={item.category}
+                            entityType={entityType}
+                          />
+                        )}
                       </div>
                     )}
                   </div>

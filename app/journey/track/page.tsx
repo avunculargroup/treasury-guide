@@ -50,7 +50,7 @@ export default async function TrackPage() {
       entityLabel={getEntityLabel(profile.entityType)}
       displayName={profile.displayName}
     >
-      <ChecklistTracker items={items} artifactId={artifact.id} />
+      <ChecklistTracker items={items} artifactId={artifact.id} entityType={profile.entityType} />
     </PhaseLayout>
   );
 }

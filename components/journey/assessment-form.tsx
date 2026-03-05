@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
+import { PostAssessmentCTA } from '@/components/promotions/PostAssessmentCTA';
 import { Button } from '@/components/ui/button';
 import { cn, getDefaultBoardApproval, getDefaultListedEntity } from '@/lib/utils';
 import type {
@@ -183,6 +184,8 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
             </div>
           )}
         </Card>
+
+        <PostAssessmentCTA fitScore={result.fitScore} entityType={entityType} />
 
         <div className="flex items-center justify-between">
           <Button variant="secondary" onClick={() => setResult(null)}>

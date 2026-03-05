@@ -1,0 +1,110 @@
+{
+  "company": {
+    "name": "Bitcoin Treasury Solutions",
+    "shortName": "BTS",
+    "tagline": "Expert guidance for Australian bitcoin treasury adoption",
+    "contactUrl": "/contact",
+    "servicesUrl": "/services"
+  },
+  "services": [
+    {
+      "id": "advisory_session",
+      "icon": "Video",
+      "title": "1:1 Advisory Session",
+      "shortDesc": "60-min video call with a BTS advisor",
+      "longDesc": "A focused session with an experienced BTS advisor who can review your situation, answer your specific questions, and help you navigate the next steps with confidence.",
+      "format": "Video call — 60 minutes",
+      "ctaLabel": "Book a session",
+      "ctaUrl": "/contact?service=advisory_session",
+      "relevantPhases": [1, 2, 3, 4],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER", "NOT_RECOMMENDED"]
+    },
+    {
+      "id": "team_education",
+      "icon": "GraduationCap",
+      "title": "Team Education Workshop",
+      "shortDesc": "Tailored bitcoin fundamentals for your finance team",
+      "longDesc": "We run structured education sessions for finance teams and boards, covering bitcoin fundamentals, treasury rationale, and Australian regulatory context — tailored to your entity type.",
+      "format": "In-person or video — half or full day",
+      "ctaLabel": "Enquire about a workshop",
+      "ctaUrl": "/contact?service=team_education",
+      "relevantPhases": [1, 2],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER"]
+    },
+    {
+      "id": "board_pitch",
+      "icon": "Presentation",
+      "title": "Board Pitch Support",
+      "shortDesc": "Help preparing and presenting to your board",
+      "longDesc": "BTS advisors help finance leaders build a compelling internal case for bitcoin treasury adoption — from preparing board papers through to supporting the presentation itself.",
+      "format": "Consulting engagement — variable scope",
+      "ctaLabel": "Get pitch support",
+      "ctaUrl": "/contact?service=board_pitch",
+      "relevantPhases": [2, 3],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER"]
+    },
+    {
+      "id": "expert_referral",
+      "icon": "Users",
+      "title": "Expert Referral",
+      "shortDesc": "Connect with legal, accounting, or custody specialists",
+      "longDesc": "Access BTS's curated network of Australian professionals with direct bitcoin experience — including solicitors, tax accountants, SMSF specialists, and custody consultants.",
+      "format": "Referral — you engage directly with the specialist",
+      "ctaLabel": "Find an expert",
+      "ctaUrl": "/contact?service=expert_referral",
+      "relevantPhases": [2, 3, 4],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER", "NOT_RECOMMENDED"]
+    },
+    {
+      "id": "staff_training",
+      "icon": "BookOpen",
+      "title": "Staff Training",
+      "shortDesc": "Practical bitcoin literacy for your broader team",
+      "longDesc": "Structured training for finance, compliance, and operations staff who need to understand bitcoin custody, accounting treatment, and risk management in day-to-day work.",
+      "format": "In-person or video — modular sessions",
+      "ctaLabel": "Enquire about training",
+      "ctaUrl": "/contact?service=staff_training",
+      "relevantPhases": [3, 4],
+      "relevantFitScores": ["RECOMMENDED"]
+    }
+  ],
+  "expertNetwork": [
+    {
+      "role": "Bitcoin-Literate Solicitor",
+      "description": "Entity structure, trust deeds, compliance",
+      "icon": "Scale",
+      "iconBg": "#F0EAD6",
+      "ctaUrl": "/contact?service=expert_referral&type=legal"
+    },
+    {
+      "role": "Crypto Tax Accountant",
+      "description": "ATO treatment, CGT elections, FY reporting",
+      "icon": "BarChart2",
+      "iconBg": "#E8F0EC",
+      "ctaUrl": "/contact?service=expert_referral&type=accounting"
+    },
+    {
+      "role": "Custody Specialist",
+      "description": "Multi-sig setup, key management, audits",
+      "icon": "Shield",
+      "iconBg": "#EAE8F0",
+      "ctaUrl": "/contact?service=expert_referral&type=custody"
+    },
+    {
+      "role": "SMSF Specialist Adviser",
+      "description": "SIS Act compliance, investment strategy",
+      "icon": "FileText",
+      "iconBg": "#F0ECE8",
+      "ctaUrl": "/contact?service=expert_referral&type=smsf",
+      "entityTypes": ["SMSF"]
+    },
+    {
+      "role": "ASIC / Listed Entity Adviser",
+      "description": "Continuous disclosure, shareholder approval",
+      "icon": "Landmark",
+      "iconBg": "#E8EDF0",
+      "ctaUrl": "/contact?service=expert_referral&type=listed",
+      "entityTypes": ["PUBLIC_COMPANY"]
+    }
+  ]
+}

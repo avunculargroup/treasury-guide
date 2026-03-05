@@ -18,7 +18,7 @@ export default async function LearnPage() {
       entityLabel={getEntityLabel(profile.entityType)}
       displayName={profile.displayName}
     >
-      <LearnContent modules={modules} isComplete={isComplete} />
+      <LearnContent modules={modules} isComplete={isComplete} entityType={profile.entityType} />
     </PhaseLayout>
   );
 }

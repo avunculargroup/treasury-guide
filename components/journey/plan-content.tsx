@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
+import { ExpertNetworkCard } from '@/components/promotions/ExpertNetworkCard';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type {
@@ -166,6 +167,9 @@ export function PlanContent({ entityType, assessmentResponses, isComplete }: Pla
               ))}
             </div>
           </Card>
+
+          {/* Expert network — always visible after reaching custody selection */}
+          <ExpertNetworkCard entityType={entityType} phase={3} />
 
           <div className="flex justify-end">
             <Button onClick={() => setStep(2)}>Next: Allocation</Button>
