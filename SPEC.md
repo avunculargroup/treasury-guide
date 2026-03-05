@@ -775,3 +775,486 @@ Build in this exact sequence. Each step should be complete and working before mo
 
 _Bitcoin Treasury Platform MVP Specification v1.0_  
 _Stack: Next.js 15 · TypeScript · Clerk · Prisma · PostgreSQL · Mastra AI · Anthropic Claude API_
+
+# SPEC Addendum — BTS Service Promotions
+## Section 13: In-Product Service Promotion System
+
+> **For Claude Code:** Append this section to `SPEC.md` as Section 13. Build after Step 14 (Landing Page) in the Build Order. This section is self-contained and complete — make sensible decisions for anything not explicitly specified.
+
+---
+
+## 13.1 Overview
+
+The platform is free to use. Bitcoin Treasury Solutions (BTS) offers paid advisory services — education sessions, board pitch support, staff training, and a curated expert referral network. These services should be promoted tastefully throughout the product at contextually relevant moments.
+
+**Design principle:** Promotions must feel like helpful suggestions from an advisor, not advertisements. They appear at moments of natural friction or decision-making, where a human expert provides genuine additional value. They must never interrupt the user's flow or feel pushy.
+
+**Never:**
+- Use the word "advertisement", "sponsored", or "ad"
+- Show promotions in the middle of active form-filling or assessment steps
+- Show the same promotion twice in a single session if the user has dismissed it
+- Use urgency language ("Limited spots", "Act now")
+- Place more than one promotion variant on the same page
+
+**Always:**
+- Label BTS-sourced content with a subtle `BTS` badge in the brand gold
+- Provide a "Maybe later" or equivalent dismiss option on inline variants
+- Include a clear path to the user continuing without engaging
+
+---
+
+## 13.2 BTS Services Reference
+
+All promotion copy and service definitions are driven by `/content/bts-services.json`. Claude Code must create this file. Components must read service data from this file — do not hardcode service names, descriptions, or URLs in components.
+
+### `/content/bts-services.json`
+
+```json
+{
+  "company": {
+    "name": "Bitcoin Treasury Solutions",
+    "shortName": "BTS",
+    "tagline": "Expert guidance for Australian bitcoin treasury adoption",
+    "contactUrl": "/contact",
+    "servicesUrl": "/services"
+  },
+  "services": [
+    {
+      "id": "advisory_session",
+      "icon": "Video",
+      "title": "1:1 Advisory Session",
+      "shortDesc": "60-min video call with a BTS advisor",
+      "longDesc": "A focused session with an experienced BTS advisor who can review your situation, answer your specific questions, and help you navigate the next steps with confidence.",
+      "format": "Video call — 60 minutes",
+      "ctaLabel": "Book a session",
+      "ctaUrl": "/contact?service=advisory_session",
+      "relevantPhases": [1, 2, 3, 4],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER", "NOT_RECOMMENDED"]
+    },
+    {
+      "id": "team_education",
+      "icon": "GraduationCap",
+      "title": "Team Education Workshop",
+      "shortDesc": "Tailored bitcoin fundamentals for your finance team",
+      "longDesc": "We run structured education sessions for finance teams and boards, covering bitcoin fundamentals, treasury rationale, and Australian regulatory context — tailored to your entity type.",
+      "format": "In-person or video — half or full day",
+      "ctaLabel": "Enquire about a workshop",
+      "ctaUrl": "/contact?service=team_education",
+      "relevantPhases": [1, 2],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER"]
+    },
+    {
+      "id": "board_pitch",
+      "icon": "Presentation",
+      "title": "Board Pitch Support",
+      "shortDesc": "Help preparing and presenting to your board",
+      "longDesc": "BTS advisors help finance leaders build a compelling internal case for bitcoin treasury adoption — from preparing board papers through to supporting the presentation itself.",
+      "format": "Consulting engagement — variable scope",
+      "ctaLabel": "Get pitch support",
+      "ctaUrl": "/contact?service=board_pitch",
+      "relevantPhases": [2, 3],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER"]
+    },
+    {
+      "id": "expert_referral",
+      "icon": "Users",
+      "title": "Expert Referral",
+      "shortDesc": "Connect with legal, accounting, or custody specialists",
+      "longDesc": "Access BTS's curated network of Australian professionals with direct bitcoin experience — including solicitors, tax accountants, SMSF specialists, and custody consultants.",
+      "format": "Referral — you engage directly with the specialist",
+      "ctaLabel": "Find an expert",
+      "ctaUrl": "/contact?service=expert_referral",
+      "relevantPhases": [2, 3, 4],
+      "relevantFitScores": ["RECOMMENDED", "EXPLORE_FURTHER", "NOT_RECOMMENDED"]
+    },
+    {
+      "id": "staff_training",
+      "icon": "BookOpen",
+      "title": "Staff Training",
+      "shortDesc": "Practical bitcoin literacy for your broader team",
+      "longDesc": "Structured training for finance, compliance, and operations staff who need to understand bitcoin custody, accounting treatment, and risk management in day-to-day work.",
+      "format": "In-person or video — modular sessions",
+      "ctaLabel": "Enquire about training",
+      "ctaUrl": "/contact?service=staff_training",
+      "relevantPhases": [3, 4],
+      "relevantFitScores": ["RECOMMENDED"]
+    }
+  ],
+  "expertNetwork": [
+    {
+      "role": "Bitcoin-Literate Solicitor",
+      "description": "Entity structure, trust deeds, compliance",
+      "icon": "Scale",
+      "iconBg": "#F0EAD6",
+      "ctaUrl": "/contact?service=expert_referral&type=legal"
+    },
+    {
+      "role": "Crypto Tax Accountant",
+      "description": "ATO treatment, CGT elections, FY reporting",
+      "icon": "BarChart2",
+      "iconBg": "#E8F0EC",
+      "ctaUrl": "/contact?service=expert_referral&type=accounting"
+    },
+    {
+      "role": "Custody Specialist",
+      "description": "Multi-sig setup, key management, audits",
+      "icon": "Shield",
+      "iconBg": "#EAE8F0",
+      "ctaUrl": "/contact?service=expert_referral&type=custody"
+    },
+    {
+      "role": "SMSF Specialist Adviser",
+      "description": "SIS Act compliance, investment strategy",
+      "icon": "FileText",
+      "iconBg": "#F0ECE8",
+      "ctaUrl": "/contact?service=expert_referral&type=smsf",
+      "entityTypes": ["SMSF"]
+    },
+    {
+      "role": "ASIC / Listed Entity Adviser",
+      "description": "Continuous disclosure, shareholder approval",
+      "icon": "Landmark",
+      "iconBg": "#E8EDF0",
+      "ctaUrl": "/contact?service=expert_referral&type=listed",
+      "entityTypes": ["PUBLIC_COMPANY"]
+    }
+  ]
+}
+```
+
+**Notes on `expertNetwork`:**
+- Items with an `entityTypes` array are only shown when the user's entity type matches
+- Items without `entityTypes` are shown to all entity types
+- Show a maximum of 4 expert items at a time; prioritise entity-matched items first
+
+---
+
+## 13.3 Dismissal & Session Persistence
+
+Use `sessionStorage` (not `localStorage`) to track which promotion variants have been dismissed in the current session. Do not persist dismissals across sessions — the user should see promotions again on their next visit.
+
+```typescript
+// lib/promotions.ts
+
+const DISMISSED_KEY = 'bts_dismissed_promos';
+
+export function isDismissed(variantId: string): boolean {
+  if (typeof window === 'undefined') return false;
+  const dismissed = JSON.parse(sessionStorage.getItem(DISMISSED_KEY) || '[]');
+  return dismissed.includes(variantId);
+}
+
+export function dismiss(variantId: string): void {
+  const dismissed = JSON.parse(sessionStorage.getItem(DISMISSED_KEY) || '[]');
+  if (!dismissed.includes(variantId)) {
+    sessionStorage.setItem(DISMISSED_KEY, JSON.stringify([...dismissed, variantId]));
+  }
+}
+```
+
+Each promotion variant has a unique `variantId` string (specified per variant below). Pass this to the dismiss utility on user dismissal.
+
+---
+
+## 13.4 Component File Structure
+
+Create the following files. All components are client components (`'use client'`).
+
+```
+/components/promotions/
+├── InlineAdvisoryBanner.tsx      # Variant 1
+├── ExpertNetworkCard.tsx         # Variant 2
+├── PostAssessmentCTA.tsx         # Variant 3
+├── BlockedItemPrompt.tsx         # Variant 4
+├── DashboardBTSCard.tsx          # Variant 5
+├── LandingServicesStrip.tsx      # Variant 6
+└── index.ts                      # barrel export
+```
+
+All components accept only the props defined in Section 13.5. Do not pass raw service data as props — components load from `bts-services.json` directly or receive the minimum context needed (e.g. `entityType`, `fitScore`).
+
+---
+
+## 13.5 Component Specifications
+
+### Variant 1 — `InlineAdvisoryBanner`
+
+**File:** `/components/promotions/InlineAdvisoryBanner.tsx`  
+**Variant ID:** `inline_advisory_[phase]_[moduleSlug]` (e.g. `inline_advisory_1_ato-tax-treatment`)
+
+**Props:**
+```typescript
+interface InlineAdvisoryBannerProps {
+  context: string         // e.g. "ATO tax treatment for SMSFs" — inserted into headline
+  serviceId: string       // which service from bts-services.json to promote
+  phase: number           // current phase (1–4)
+  variantId: string       // unique ID for dismissal tracking
+}
+```
+
+**Behaviour:**
+- Renders only if not dismissed (check `isDismissed(variantId)`)
+- Gold-tinted background (`#F0E4C0`), left gold border stripe (3px, `#C9A84C`)
+- "BTS Advisory Services" eyebrow label in gold
+- Headline: "Want a guided walkthrough of {context}?"
+- Supporting sentence about the specific service
+- Two actions: primary CTA button (links to `service.ctaUrl`), "Maybe later" ghost button (calls `dismiss(variantId)`)
+- On dismiss: fades out smoothly (150ms), does not reappear in session
+
+**Design:** Warm gold tint, left border accent, icon in gold square. See DESIGN_BRIEF.md for full token reference.
+
+---
+
+### Variant 2 — `ExpertNetworkCard`
+
+**File:** `/components/promotions/ExpertNetworkCard.tsx`  
+**Variant ID:** `expert_network_[phase]`
+
+**Props:**
+```typescript
+interface ExpertNetworkCardProps {
+  entityType: EntityType
+  phase: number
+}
+```
+
+**Behaviour:**
+- Loads `expertNetwork` from `bts-services.json`
+- Filters items: show entity-matched items first, then universal items, max 4 total
+- Each row is a clickable item linking to `expert.ctaUrl`
+- Card header shows "BTS Expert Network" heading + gold `BTS` badge + `Australia` country note
+- Footer: "🇦🇺 All specialists are Australia-based and Bitcoin-experienced"
+- No dismiss option — this is reference information, not a CTA prompt
+- On hover per row: gold-tinted background, gold border
+
+**Design:** White card, `--shadow-sm`, `12px` radius. See DESIGN_BRIEF.md.
+
+---
+
+### Variant 3 — `PostAssessmentCTA`
+
+**File:** `/components/promotions/PostAssessmentCTA.tsx`  
+**Variant ID:** `post_assessment_cta`
+
+**Props:**
+```typescript
+interface PostAssessmentCTAProps {
+  fitScore: FitScore       // RECOMMENDED | EXPLORE_FURTHER | NOT_RECOMMENDED
+  entityType: EntityType
+}
+```
+
+**Behaviour:**
+- Headline and sub-copy adapt per `fitScore`:
+  - `RECOMMENDED`: "Ready to move forward — with confidence" / "Bitcoin treasury looks like a strong fit. Here's how BTS can help you execute it properly."
+  - `EXPLORE_FURTHER`: "A few questions worth talking through" / "Your situation has nuances worth exploring with an advisor before proceeding."
+  - `NOT_RECOMMENDED`: "It may not be the right time — let's talk" / "That's a valuable insight. Our advisors can help you understand what would change the picture."
+- Shows a 2×2 grid of service option cards (selectable): `advisory_session`, `team_education`, `board_pitch`, `expert_referral`
+- User selects one (single select); primary CTA label updates to reflect selection: "Enquire — {service.title}"
+- If no selection, CTA label: "Get in touch with BTS"
+- Primary CTA links to selected service's `ctaUrl` (or `/contact` if none selected)
+- Secondary action: "Continue on my own" — no dismiss, just a neutral exit
+- No session dismissal — this always renders after assessment; it is part of the phase completion flow
+
+**Design:** Dark header (`#1A1915`) with gold icon, white body. Grid of selectable tiles with gold selection state.
+
+---
+
+### Variant 4 — `BlockedItemPrompt`
+
+**File:** `/components/promotions/BlockedItemPrompt.tsx`  
+**Variant ID:** `blocked_item_[checklistItemId]`
+
+**Props:**
+```typescript
+interface BlockedItemPromptProps {
+  checklistItemId: string
+  itemTitle: string
+  itemCategory: string    // used to suggest relevant expert type
+  entityType: EntityType
+}
+```
+
+**Behaviour:**
+- Only renders when a checklist item's status is `BLOCKED`
+- Appears inline beneath the blocked item's notes field
+- Maps `itemCategory` to a relevant expert referral URL:
+  - "Legal & Compliance Setup" → `expert_referral&type=legal`
+  - "Accounting & Tax Preparation" → `expert_referral&type=accounting`
+  - "Custody & Security Setup" → `expert_referral&type=custody`
+  - "SMSF Trust Deed..." → `expert_referral&type=smsf`
+  - All others → `expert_referral` (generic)
+- Copy: "Stuck on "{itemTitle}"? BTS can connect you with an Australia-based specialist who's done this before."
+- Single text-link CTA: "Find an expert through BTS →"
+- No dismiss option — it disappears automatically when item status changes from `BLOCKED`
+- `variantId` used only if a full dismiss button is added later; not needed in MVP
+
+**Design:** Warm amber tint (`#FFF8E8`), amber border (`#E8D28A`), compact, inline. No shadow.
+
+---
+
+### Variant 5 — `DashboardBTSCard`
+
+**File:** `/components/promotions/DashboardBTSCard.tsx`  
+**Variant ID:** `dashboard_bts_card`
+
+**Props:**
+```typescript
+interface DashboardBTSCardProps {
+  // no required props — loads all data from bts-services.json
+}
+```
+
+**Behaviour:**
+- Always visible on the Journey dashboard — no dismiss
+- Shows all 5 service names as compact pills
+- Two actions: "Speak with an advisor" (→ `/contact`) and "View all services" (→ `/services`)
+- Radial gold glow effect in top-right corner (decorative, CSS only)
+- Positioned below the phase cards, above the footer
+
+**Design:** Dark background (`#1A1915`), gold accent text, gold pills with low-opacity gold border. See DESIGN_BRIEF.md for the inverted palette treatment.
+
+---
+
+### Variant 6 — `LandingServicesStrip`
+
+**File:** `/components/promotions/LandingServicesStrip.tsx`  
+**Variant ID:** `landing_services_strip`
+
+**Props:**
+```typescript
+interface LandingServicesStripProps {
+  // no required props — loads from bts-services.json
+}
+```
+
+**Behaviour:**
+- Always visible on landing page — no dismiss
+- Headline: "Beyond the guide" with sub-label "Bitcoin Treasury Solutions services"
+- Shows 3 featured services in a grid (hardcode these IDs in the component): `team_education`, `board_pitch`, `expert_referral`
+- Footer strip: "This guide is free to use. When you're ready for expert human support, BTS is here." + gold CTA button "Explore BTS services →" → `/services`
+
+**Placement on landing page:** After the "4-phase journey" section, before the footer disclaimer.
+
+**Design:** White card, `--shadow-sm`, warm border, 3-column grid on desktop, 1-column on mobile.
+
+---
+
+## 13.6 Phase Placement Map
+
+This table defines exactly where each variant is placed. One variant per page maximum.
+
+| Phase / Page | Variant | Placement | Trigger Condition |
+|---|---|---|---|
+| Landing (`/`) | `LandingServicesStrip` | After phase overview section | Always |
+| Journey Dashboard (`/journey`) | `DashboardBTSCard` | Below phase cards | Always |
+| Learn (`/journey/learn`) | `InlineAdvisoryBanner` | After the `regulatory-context` module | After user has scrolled past the module (use Intersection Observer) |
+| Decide (`/journey/decide`) | `PostAssessmentCTA` | After fit assessment result renders | Only after fit score is returned — never before |
+| Plan (`/journey/plan`) | `ExpertNetworkCard` | After the "Custody selection" section | Always visible once user reaches that section |
+| Track (`/journey/track`) | `BlockedItemPrompt` | Inline beneath each blocked checklist item | Only when item status === `BLOCKED` |
+
+### Learn Phase — `InlineAdvisoryBanner` Configuration
+
+Render the banner after the following module slugs (these map to the MDX file names in `/content/`):
+
+| Module slug | `context` prop value | `serviceId` |
+|---|---|---|
+| `regulatory-context` | "Australian regulatory obligations" | `advisory_session` |
+| `ato-tax-treatment` (entity: SMSF, Private Company, Public Company) | "ATO tax treatment for your entity" | `team_education` |
+| `custody-models` | "bitcoin custody and key management" | `advisory_session` |
+
+Only show one banner per Learn session. Once any banner is dismissed for the session, do not show additional ones even if the user proceeds to further modules.
+
+---
+
+## 13.7 `/contact` Page
+
+Create a minimal `/contact` page at `app/contact/page.tsx`.
+
+**Route:** `/contact` (public — no auth required)
+
+**Behaviour:**
+- Reads `service` and `type` query params to pre-select the relevant service
+- Simple form: Name, Email, Company name, Entity type (pre-filled if logged in), Message, selected service (pre-filled from query param, shown as a read-only badge)
+- On submit: `POST /api/contact` — log to console in MVP (no email sending required in MVP; add a `// TODO: wire up email provider` comment)
+- Success state: confirmation message in-page, no redirect
+- Auth: public page, but pre-fill fields from user profile if authenticated
+
+**Form fields:**
+
+```typescript
+interface ContactFormData {
+  name: string          // required
+  email: string         // required
+  company: string       // required
+  entityType: string    // optional, pre-filled if logged in
+  service: string       // pre-filled from query param, user can change
+  message: string       // required, min 20 chars
+}
+```
+
+**Design:** Matches platform design system. Single-column centred form, max-width 560px. Gold focus rings on inputs. Primary submit button in gold.
+
+---
+
+## 13.8 `/services` Page
+
+Create a full services listing page at `app/services/page.tsx`.
+
+**Route:** `/services` (public — no auth required)
+
+**Behaviour:**
+- Loads all services from `bts-services.json`
+- Renders each service as a card with: icon, title, `longDesc`, `format` label, and CTA button linking to `/contact?service={service.id}`
+- Expert network section below services: heading "The BTS Expert Network", renders all expert network entries (no entity filtering on this page — show all)
+- Footer CTA strip: "Ready to get started? Book a free 20-minute discovery call." → `/contact`
+
+**Design:** 2-column service grid on desktop, 1-column on mobile. Expert network in a separate section with warm background (`#F4F4F1`). Consistent with platform design system.
+
+---
+
+## 13.9 API Route
+
+**Route:** `POST /api/contact`
+
+```typescript
+// Expected request body
+{
+  name: string
+  email: string
+  company: string
+  entityType?: string
+  service?: string
+  message: string
+}
+
+// Response shape (consistent with platform convention)
+{
+  success: boolean
+  data?: { message: string }
+  error?: string
+}
+```
+
+Validate all required fields. Return `400` with error message if validation fails. In MVP, log the submission to console and return success. Add `// TODO: integrate email provider (e.g. Resend, Postmark)` comment.
+
+---
+
+## 13.10 Build Order Addition
+
+Insert after Step 14 (Landing Page) in the existing build order:
+
+**Step 15a — BTS Promotions System**
+
+1. Create `/content/bts-services.json` with all data from Section 13.2
+2. Create `lib/promotions.ts` with dismissal utilities (Section 13.3)
+3. Build all 6 promotion components (Section 13.5) in order — Variant 5 and 6 first (no dismissal logic needed), then Variants 1–4
+4. Create `/app/contact/page.tsx` and `/api/contact/route.ts` (Section 13.7–13.9)
+5. Create `/app/services/page.tsx` (Section 13.8)
+6. Inject components into the correct phase pages per the placement map (Section 13.6)
+7. Test: dismiss a Variant 1 banner, navigate away, return — confirm it does not reappear in the same session; open a new tab — confirm it does reappear
+
+---
+
+_SPEC Addendum v1.0 — BTS Service Promotions_  
+_Append to: Bitcoin Treasury Platform MVP Specification_
