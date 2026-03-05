@@ -1,6 +1,5 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-import { createUIMessageStream, createUIMessageStreamResponse } from 'ai';
 import { toAISdkStream } from '@mastra/ai-sdk';
 import { RequestContext } from '@mastra/core/request-context';
 import { mastra } from '@/lib/mastra';
@@ -47,20 +46,26 @@ export async function POST(req: Request) {
     ['currentPhase', phase || 1],
   ]);
 
-  const stream = await agent.stream(messages, {
+  const agentStream = await agent.stream(messages, {
     requestContext,
   });
 
   let fullResponse = '';
+  const encoder = new TextEncoder();
 
-  const uiMessageStream = createUIMessageStream({
-    originalMessages: messages,
-    execute: async ({ writer }) => {
-      for await (const part of toAISdkStream(stream, { from: 'agent' })) {
-        if (part.type === 'text-delta' && 'delta' in part && typeof part.delta === 'string') {
-          fullResponse += part.delta;
+  // Stream in data stream protocol format (`0:"delta"` per line) so the
+  // client-side manual parser can read text deltas correctly.
+  const readable = new ReadableStream({
+    async start(controller) {
+      try {
+        for await (const part of toAISdkStream(agentStream, { from: 'agent' })) {
+          if (part.type === 'text-delta' && 'delta' in part && typeof part.delta === 'string') {
+            fullResponse += part.delta;
+            controller.enqueue(encoder.encode(`0:${JSON.stringify(part.delta)}\n`));
+          }
         }
-        await writer.write(part);
+      } finally {
+        controller.close();
       }
 
       if (fullResponse) {
@@ -76,7 +81,7 @@ export async function POST(req: Request) {
     },
   });
 
-  return createUIMessageStreamResponse({
-    stream: uiMessageStream,
+  return new Response(readable, {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
   });
 }
