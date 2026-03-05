@@ -120,27 +120,30 @@ export function ChatPanel() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all',
+          'fixed bottom-6 right-6 z-50 flex h-13 w-13 items-center justify-center rounded-full transition-all duration-150 active:scale-95',
+          '[box-shadow:0_4px_12px_rgba(26,25,21,0.15),_0_2px_4px_rgba(26,25,21,0.10)]',
           isOpen
-            ? 'bg-navy-800 text-white hover:bg-navy-900'
-            : 'bg-brand-500 text-white hover:bg-brand-600'
+            ? 'bg-[#1A1915] text-[#E8E6E0] hover:bg-[#2A2825]'
+            : 'bg-[#C9A84C] text-[#1A1915] hover:bg-[#9A7A2E]'
         )}
+        aria-label={isOpen ? 'Close assistant' : 'Open assistant'}
       >
-        {isOpen ? '✕' : '💬'}
+        <span className="text-lg">{isOpen ? '✕' : '?'}</span>
       </button>
 
       {/* Chat panel */}
       <div
         className={cn(
-          'fixed bottom-24 right-6 z-40 flex w-96 flex-col rounded-xl border border-navy-200 bg-white shadow-2xl transition-all duration-300',
-          isOpen ? 'h-[32rem] opacity-100' : 'pointer-events-none h-0 opacity-0'
+          'fixed bottom-24 right-6 z-40 flex w-[22rem] flex-col rounded-xl border border-[#E8E6E0] bg-white transition-all duration-200',
+          '[box-shadow:0_12px_32px_rgba(26,25,21,0.12),_0_4px_8px_rgba(26,25,21,0.06)]',
+          isOpen ? 'h-[30rem] opacity-100' : 'pointer-events-none h-0 opacity-0'
         )}
       >
         {/* Header */}
-        <div className="border-b border-navy-100 px-4 py-3">
-          <h3 className="font-semibold text-navy-900">Treasury Assistant</h3>
+        <div className="border-b border-[#E8E6E0] px-4 py-3">
+          <h3 className="font-semibold text-navy-900">Treasury assistant</h3>
           <p className="text-xs text-navy-400">
-            This assistant provides general information only.
+            General information only — not financial advice.
           </p>
         </div>
 
@@ -155,10 +158,10 @@ export function ChatPanel() {
             <div
               key={msg.id}
               className={cn(
-                'mb-3 max-w-[85%] rounded-lg px-3 py-2 text-sm',
+                'mb-3 max-w-[85%] rounded-lg px-3 py-2 text-sm leading-relaxed',
                 msg.role === 'user'
-                  ? 'ml-auto bg-brand-500 text-white'
-                  : 'bg-navy-50 text-navy-800'
+                  ? 'ml-auto bg-[#C9A84C] text-[#1A1915]'
+                  : 'bg-[#F4F4F1] text-navy-800'
               )}
             >
               {msg.content || (
@@ -174,7 +177,7 @@ export function ChatPanel() {
         </div>
 
         {/* Input */}
-        <form onSubmit={handleSubmit} className="border-t border-navy-100 p-3">
+        <form onSubmit={handleSubmit} className="border-t border-[#E8E6E0] p-3">
           <div className="flex gap-2">
             <textarea
               ref={inputRef}
@@ -188,7 +191,7 @@ export function ChatPanel() {
               }}
               placeholder="Ask a question..."
               rows={1}
-              className="flex-1 resize-none rounded-lg border border-navy-200 px-3 py-2 text-sm text-navy-900 placeholder:text-navy-300 focus:border-brand-500 focus:outline-none"
+              className="flex-1 resize-none rounded-md border border-[#E8E6E0] bg-white px-3 py-2 text-sm text-navy-900 placeholder:text-navy-400 focus:border-[#C9A84C] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/20"
               disabled={isLoading}
             />
             <Button type="submit" size="sm" disabled={isLoading || !input.trim()}>

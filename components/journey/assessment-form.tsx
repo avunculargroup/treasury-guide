@@ -55,6 +55,17 @@ const CRYPTO_EXPOSURE_OPTIONS: { value: PriorCryptoExposure; label: string }[] =
 
 const SOFTWARE_OPTIONS = ['Xero', 'MYOB', 'QuickBooks', 'Other', 'None'];
 
+const radioOptionClass = (selected: boolean) =>
+  cn(
+    'flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 transition-colors',
+    selected
+      ? 'border-[#C9A84C] bg-[#FAF5E8]'
+      : 'border-[#E8E6E0] hover:bg-[#F4F4F1]'
+  );
+
+const selectClass =
+  'mt-2 w-full rounded-md border border-[#E8E6E0] bg-white px-4 py-2 text-sm text-navy-900 focus:border-[#C9A84C] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/20';
+
 export function AssessmentForm({ entityType, existingAssessment, isComplete }: AssessmentFormProps) {
   const router = useRouter();
   const existing = existingAssessment?.responses as Partial<AssessmentResponses> | undefined;
@@ -131,40 +142,40 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
     return (
       <div className="space-y-6">
         <Card>
-          <div className="mb-4 rounded-lg bg-navy-50 px-4 py-2 text-xs text-navy-500">
+          <div className="mb-5 rounded-md bg-[#F4F4F1] px-4 py-2.5 text-xs text-navy-500">
             This assessment provides general information only and does not constitute financial advice.
           </div>
 
-          <h2 className="text-xl font-bold text-navy-900">Your Fit Assessment</h2>
+          <h2 className="font-display text-xl font-semibold text-navy-900">Your fit assessment</h2>
 
           <div className="mt-4">
             <span
               className={cn(
-                'inline-block rounded-full px-4 py-1.5 text-sm font-semibold',
+                'inline-block rounded-[4px] px-4 py-1.5 text-sm font-semibold uppercase tracking-wide',
                 result.fitScore === 'RECOMMENDED'
-                  ? 'bg-green-100 text-green-700'
+                  ? 'bg-[#E8F4EF] text-[#3D7A5E]'
                   : result.fitScore === 'EXPLORE_FURTHER'
-                    ? 'bg-yellow-100 text-yellow-700'
-                    : 'bg-red-100 text-red-700'
+                    ? 'bg-[#F0E4C0] text-[#9A7A2E]'
+                    : 'bg-[#F9EDED] text-[#B04040]'
               )}
             >
               {result.fitScore === 'RECOMMENDED'
                 ? 'Recommended'
                 : result.fitScore === 'EXPLORE_FURTHER'
-                  ? 'Explore Further'
-                  : 'Not Recommended'}
+                  ? 'Explore further'
+                  : 'Not recommended'}
             </span>
           </div>
 
-          <p className="mt-4 text-navy-700 leading-relaxed">{result.fitSummary}</p>
+          <p className="mt-5 leading-relaxed text-navy-600">{result.fitSummary}</p>
 
           {result.riskFlags.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-sm font-semibold text-navy-800">Key Risk Flags</h3>
-              <ul className="mt-2 space-y-2">
+            <div className="mt-6 border-t border-[#E8E6E0] pt-5">
+              <h3 className="text-sm font-semibold text-navy-900">Key risk flags</h3>
+              <ul className="mt-3 space-y-2.5">
                 {result.riskFlags.map((flag, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-navy-600">
-                    <span className="mt-0.5 text-brand-500">⚠</span>
+                    <span className="mt-0.5 text-[#B8860B]">⚠</span>
                     {flag}
                   </li>
                 ))}
@@ -174,8 +185,8 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
         </Card>
 
         <div className="flex items-center justify-between">
-          <Button variant="outline" onClick={() => setResult(null)}>
-            Retake Assessment
+          <Button variant="secondary" onClick={() => setResult(null)}>
+            Retake assessment
           </Button>
           {!isComplete && (
             <Button size="lg" onClick={handleCompletePhase}>
@@ -183,8 +194,8 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
             </Button>
           )}
           {isComplete && (
-            <Button variant="outline" onClick={() => router.push('/journey')}>
-              Back to Dashboard
+            <Button variant="secondary" onClick={() => router.push('/journey')}>
+              Back to dashboard
             </Button>
           )}
         </div>
@@ -193,10 +204,10 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <Card>
-        <h2 className="text-xl font-bold text-navy-900">Company Fit Assessment</h2>
-        <p className="mt-1 text-sm text-navy-500">
+        <h2 className="font-display text-xl font-semibold text-navy-900">Company fit assessment</h2>
+        <p className="mt-2 text-sm leading-relaxed text-navy-500">
           Answer these questions to receive a personalised assessment of whether a Bitcoin treasury
           strategy is appropriate for your entity.
         </p>
@@ -204,25 +215,17 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
 
       {/* Risk Appetite */}
       <Card>
-        <label className="block text-sm font-medium text-navy-800">Risk Appetite</label>
-        <div className="mt-2 space-y-2">
+        <label className="block text-sm font-medium text-navy-900">Risk appetite</label>
+        <div className="mt-3 space-y-2">
           {RISK_OPTIONS.map((opt) => (
-            <label
-              key={opt.value}
-              className={cn(
-                'flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 transition-colors',
-                responses.riskAppetite === opt.value
-                  ? 'border-brand-500 bg-brand-50'
-                  : 'border-navy-100 hover:bg-navy-50'
-              )}
-            >
+            <label key={opt.value} className={radioOptionClass(responses.riskAppetite === opt.value)}>
               <input
                 type="radio"
                 name="riskAppetite"
                 value={opt.value}
                 checked={responses.riskAppetite === opt.value}
                 onChange={() => updateField('riskAppetite', opt.value)}
-                className="accent-brand-500"
+                className="accent-[#C9A84C]"
               />
               <span className="text-sm text-navy-700">{opt.label}</span>
             </label>
@@ -232,11 +235,11 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
 
       {/* Cash Reserve Band */}
       <Card>
-        <label className="block text-sm font-medium text-navy-800">Available Cash Reserves</label>
+        <label className="block text-sm font-medium text-navy-900">Available cash reserves</label>
         <select
           value={responses.cashReserveBand}
           onChange={(e) => updateField('cashReserveBand', e.target.value as CashReserveBand)}
-          className="mt-2 w-full rounded-lg border border-navy-200 px-4 py-2 text-sm text-navy-900"
+          className={selectClass}
         >
           {CASH_RESERVE_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -246,25 +249,17 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
 
       {/* Investment Horizon */}
       <Card>
-        <label className="block text-sm font-medium text-navy-800">Investment Horizon</label>
-        <div className="mt-2 space-y-2">
+        <label className="block text-sm font-medium text-navy-900">Investment horizon</label>
+        <div className="mt-3 space-y-2">
           {HORIZON_OPTIONS.map((opt) => (
-            <label
-              key={opt.value}
-              className={cn(
-                'flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 transition-colors',
-                responses.investmentHorizon === opt.value
-                  ? 'border-brand-500 bg-brand-50'
-                  : 'border-navy-100 hover:bg-navy-50'
-              )}
-            >
+            <label key={opt.value} className={radioOptionClass(responses.investmentHorizon === opt.value)}>
               <input
                 type="radio"
                 name="investmentHorizon"
                 value={opt.value}
                 checked={responses.investmentHorizon === opt.value}
                 onChange={() => updateField('investmentHorizon', opt.value)}
-                className="accent-brand-500"
+                className="accent-[#C9A84C]"
               />
               <span className="text-sm text-navy-700">{opt.label}</span>
             </label>
@@ -274,25 +269,17 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
 
       {/* Prior Crypto Exposure */}
       <Card>
-        <label className="block text-sm font-medium text-navy-800">Prior Crypto Exposure</label>
-        <div className="mt-2 space-y-2">
+        <label className="block text-sm font-medium text-navy-900">Prior crypto exposure</label>
+        <div className="mt-3 space-y-2">
           {CRYPTO_EXPOSURE_OPTIONS.map((opt) => (
-            <label
-              key={opt.value}
-              className={cn(
-                'flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 transition-colors',
-                responses.priorCryptoExposure === opt.value
-                  ? 'border-brand-500 bg-brand-50'
-                  : 'border-navy-100 hover:bg-navy-50'
-              )}
-            >
+            <label key={opt.value} className={radioOptionClass(responses.priorCryptoExposure === opt.value)}>
               <input
                 type="radio"
                 name="priorCryptoExposure"
                 value={opt.value}
                 checked={responses.priorCryptoExposure === opt.value}
                 onChange={() => updateField('priorCryptoExposure', opt.value)}
-                className="accent-brand-500"
+                className="accent-[#C9A84C]"
               />
               <span className="text-sm text-navy-700">{opt.label}</span>
             </label>
@@ -302,11 +289,11 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
 
       {/* Accounting Software */}
       <Card>
-        <label className="block text-sm font-medium text-navy-800">Accounting Software</label>
+        <label className="block text-sm font-medium text-navy-900">Accounting software</label>
         <select
           value={responses.accountingSoftware}
           onChange={(e) => updateField('accountingSoftware', e.target.value)}
-          className="mt-2 w-full rounded-lg border border-navy-200 px-4 py-2 text-sm text-navy-900"
+          className={selectClass}
         >
           {SOFTWARE_OPTIONS.map((opt) => (
             <option key={opt} value={opt}>{opt}</option>
@@ -316,26 +303,26 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
 
       {/* Boolean toggles */}
       <Card>
-        <div className="space-y-4">
+        <div className="space-y-5">
           {[
             { key: 'hasTreasuryPolicy' as const, label: 'Do you have an existing treasury policy?' },
             { key: 'stakeholderConcerns' as const, label: 'Are there shareholders, beneficiaries, or members to consider?' },
             { key: 'boardApprovalRequired' as const, label: 'Is board approval required for investment decisions?' },
             { key: 'listedEntity' as const, label: 'Is this a listed entity (ASX or other exchange)?' },
           ].map(({ key, label }) => (
-            <label key={key} className="flex items-center justify-between">
+            <label key={key} className="flex items-center justify-between gap-4">
               <span className="text-sm text-navy-700">{label}</span>
               <button
                 type="button"
                 onClick={() => updateField(key, !responses[key])}
                 className={cn(
-                  'relative h-6 w-11 rounded-full transition-colors',
-                  responses[key] ? 'bg-brand-500' : 'bg-navy-200'
+                  'relative h-6 w-11 shrink-0 rounded-full transition-colors duration-150',
+                  responses[key] ? 'bg-[#C9A84C]' : 'bg-[#D5D2CA]'
                 )}
               >
                 <span
                   className={cn(
-                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform',
+                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-150',
                     responses[key] && 'translate-x-5'
                   )}
                 />
@@ -345,11 +332,11 @@ export function AssessmentForm({ entityType, existingAssessment, isComplete }: A
         </div>
       </Card>
 
-      {error && <p className="text-center text-sm text-red-600">{error}</p>}
+      {error && <p className="text-center text-sm text-[#B04040]">{error}</p>}
 
       <div className="text-center">
         <Button size="lg" onClick={handleSubmit} disabled={isSubmitting}>
-          {isSubmitting ? 'Generating Assessment...' : 'Generate Fit Assessment'}
+          {isSubmitting ? 'Generating assessment...' : 'Generate fit assessment'}
         </Button>
       </div>
     </div>

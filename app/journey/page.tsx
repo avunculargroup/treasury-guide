@@ -12,22 +12,31 @@ export default async function JourneyDashboard() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="border-b border-navy-100 bg-white px-6 py-4">
+    <div className="flex min-h-screen flex-col bg-[#FAFAF8]">
+      <header className="border-b border-[#E8E6E0] bg-white px-6 py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold text-navy-900">Treasury Guide</h1>
-            <p className="text-sm text-navy-500">Welcome back, {profile.displayName}</p>
+          <div className="flex items-center gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Bitcoin Treasury Guide" className="h-8 w-8" />
+            <div>
+              <h1 className="font-display text-lg font-semibold leading-tight text-navy-900">
+                Bitcoin Treasury Guide
+              </h1>
+              <p className="text-xs text-navy-400">Welcome back, {profile.displayName}</p>
+            </div>
           </div>
-          <span className="rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-700">
+          <span className="rounded-[4px] bg-[#F0E4C0] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#9A7A2E]">
             {getEntityLabel(profile.entityType)}
           </span>
         </div>
       </header>
 
-      <main className="flex-1 px-6 py-8">
+      <main className="flex-1 px-6 py-10">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-2xl font-bold text-navy-900">Your Journey</h2>
+          <h2 className="font-display mb-2 text-2xl font-semibold text-navy-900">Your journey</h2>
+          <p className="mb-8 text-sm text-navy-500">
+            Complete each phase in sequence to build your Bitcoin treasury strategy.
+          </p>
           <div className="space-y-4">
             {PHASES.map((phase) => (
               <PhaseCard
