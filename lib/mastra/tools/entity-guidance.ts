@@ -1,6 +1,6 @@
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
-import { readFileSync } from 'fs';
+import { readFile } from 'fs/promises';
 import { join } from 'path';
 import type { EntityGuidance } from '@/types';
 
@@ -26,7 +26,7 @@ export const getEntityGuidanceTool = createTool({
     const filePath = join(process.cwd(), 'content', 'entities', slug, 'guidance.json');
 
     try {
-      const data = readFileSync(filePath, 'utf-8');
+      const data = await readFile(filePath, 'utf-8');
       const guidance: EntityGuidance = JSON.parse(data);
       return { guidance };
     } catch {
