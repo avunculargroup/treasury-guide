@@ -18,14 +18,14 @@ export default async function JourneyDashboard() {
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-3">
             <Logo size="md" />
-            <div>
+            <div className="hidden sm:block">
               <h1 className="font-display text-lg font-semibold leading-tight text-navy-900">
                 Bitcoin Treasury Guide
               </h1>
               <p className="text-xs text-navy-400">Welcome back, {profile.displayName}</p>
             </div>
           </div>
-          <span className="rounded-[4px] bg-[#F0E4C0] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#9A7A2E]">
+          <span className="max-w-[120px] truncate rounded-[4px] bg-[#F0E4C0] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#9A7A2E] sm:max-w-none">
             {getEntityLabel(profile.entityType)}
           </span>
         </div>
