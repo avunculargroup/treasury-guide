@@ -2,6 +2,7 @@ import { requireUserProfile } from '@/lib/user';
 import { PHASES, getEntityLabel } from '@/lib/utils';
 import { PhaseCard } from '@/components/journey/phase-card';
 import { DisclaimerFooter } from '@/components/ui/disclaimer-footer';
+import { Logo } from '@/components/ui/logo';
 import type { PhaseStatus } from '@/types';
 
 export default async function JourneyDashboard() {
@@ -16,8 +17,7 @@ export default async function JourneyDashboard() {
       <header className="border-b border-[#E8E6E0] bg-white px-6 py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="Bitcoin Treasury Guide" className="h-8 w-8" />
+            <Logo size="md" />
             <div>
               <h1 className="font-display text-lg font-semibold leading-tight text-navy-900">
                 Bitcoin Treasury Guide

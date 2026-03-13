@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/ui/logo';
 import type { EntityType } from '@/types';
 
 const ENTITY_TYPES: { value: EntityType; label: string; icon: string; description: string }[] = [
@@ -78,6 +79,12 @@ export default function OnboardingPage() {
     <div className="flex min-h-screen items-center justify-center bg-navy-50 px-4">
       <div className="w-full max-w-2xl">
         <div className="mb-8 text-center">
+          <div className="mb-4 flex justify-center">
+            <Logo size="lg" />
+          </div>
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[#9A7A2E]">
+            Bitcoin Treasury Solutions
+          </p>
           <h1 className="text-3xl font-bold text-navy-900">Welcome to Treasury Guide</h1>
           <p className="mt-2 text-navy-500">
             {step === 1
