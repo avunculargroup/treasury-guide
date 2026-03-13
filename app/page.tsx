@@ -32,7 +32,7 @@ export default async function LandingPage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Logo size="md" />
-            <div>
+            <div className="hidden sm:block">
               <span className="font-display block text-lg font-semibold leading-tight tracking-tight text-navy-900">
                 Bitcoin Treasury Guide
               </span>

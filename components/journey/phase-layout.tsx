@@ -15,24 +15,24 @@ export function PhaseLayout({ title, phase, entityLabel, displayName, children }
     <div className="flex min-h-screen flex-col bg-[#FAFAF8]">
       <header className="border-b border-[#E8E6E0] bg-white px-6 py-4">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex min-w-0 items-center gap-4">
             <Link
               href="/journey"
-              className="text-sm text-navy-400 transition-colors hover:text-navy-700"
+              className="shrink-0 text-sm text-navy-400 transition-colors hover:text-navy-700"
             >
               ← Dashboard
             </Link>
-            <div className="h-5 w-px bg-[#E8E6E0]" />
-            <div>
-              <h1 className="font-display text-base font-semibold text-navy-900">
+            <div className="h-5 w-px shrink-0 bg-[#E8E6E0]" />
+            <div className="min-w-0">
+              <h1 className="font-display truncate text-base font-semibold text-navy-900">
                 Phase {phase}: {title}
               </h1>
-              <p className="text-xs text-navy-400">
+              <p className="hidden text-xs text-navy-400 sm:block">
                 {displayName} — {entityLabel}
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="hidden shrink-0 items-center gap-2 sm:flex">
             <Logo size="sm" />
           </div>
         </div>
