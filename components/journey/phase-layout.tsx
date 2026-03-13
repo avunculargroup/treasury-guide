@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { DisclaimerFooter } from '@/components/ui/disclaimer-footer';
+import { Logo } from '@/components/ui/logo';
 
 interface PhaseLayoutProps {
   title: string;
@@ -32,8 +33,7 @@ export function PhaseLayout({ title, phase, entityLabel, displayName, children }
             </div>
           </div>
           <div className="flex items-center gap-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="Bitcoin Treasury Guide" className="h-7 w-7 opacity-60" />
+            <Logo size="sm" />
           </div>
         </div>
       </header>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { DisclaimerFooter } from '@/components/ui/disclaimer-footer';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/ui/logo';
 
 const ENTITY_TYPES = [
   { label: 'SMSFs', desc: 'Navigate SIS Act compliance and SMSF investment strategy updates' },
@@ -30,10 +31,13 @@ export default async function LandingPage() {
       <nav className="border-b border-[#E8E6E0] bg-white px-6 py-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.svg" alt="Bitcoin Treasury Guide" width={32} height={32} />
-            <span className="font-display text-lg font-semibold text-navy-900 tracking-tight">
-              Bitcoin Treasury Guide
-            </span>
+            <Logo size="md" />
+            <div>
+              <span className="font-display block text-lg font-semibold leading-tight tracking-tight text-navy-900">
+                Bitcoin Treasury Guide
+              </span>
+              <span className="text-xs text-navy-400">by Bitcoin Treasury Solutions</span>
+            </div>
           </Link>
           <div className="flex items-center gap-4">
             <Link
@@ -52,6 +56,9 @@ export default async function LandingPage() {
       {/* Hero */}
       <section className="px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-6 flex justify-center">
+            <Logo size="lg" />
+          </div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-[4px] bg-[#F0E4C0] px-3 py-1.5">
             <span className="text-xs font-medium uppercase tracking-widest text-[#9A7A2E]">
               Australian entities only
@@ -171,7 +178,9 @@ export default async function LandingPage() {
               },
             ].map((feature) => (
               <div key={feature.title}>
-                <div className="mb-3 h-px w-8 bg-[#C9A84C]" />
+                <div className="mb-3">
+                  <Image src="/logo.svg" alt="" width={20} height={20} aria-hidden="true" />
+                </div>
                 <h3 className="font-semibold text-navy-900">{feature.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-500">{feature.desc}</p>
               </div>
