@@ -72,7 +72,7 @@ export default async function LandingPage() {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-navy-500">
             A guided platform for Australian CFOs and finance executives to evaluate, plan, and
             implement a Bitcoin treasury strategy — with entity-specific regulatory context and
-            AI-powered guidance.
+            guidance.
           </p>
           <div className="mt-10 flex items-center justify-center gap-3">
             <Link href="/sign-up">
